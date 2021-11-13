@@ -1,0 +1,22 @@
+.input-text {
+  height: 2em;
+  width: 20em;
+  display: block;
+  border: none;
+  border-bottom: 1px solid $accent-font-color;
+  color: $main-font-color;
+  background-color: $main-theme-color;
+}
+.input-text:focus {
+  outline: none;
+}
+
+.input-button {
+  background-color: $accent-theme-color;
+  color: $secondary-font-color;
+  font-size: 1.2rem;
+  height: 2em;
+  width: 7em;
+  border: none;
+  border-radius: 20px;
+}

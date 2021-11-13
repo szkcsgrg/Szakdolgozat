@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yellowtail&display=swap");
+::-webkit-scrollbar {
+  display: none;
+}
+
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+  background-color: #111;
+  color: #fff;
+}
+
+.reg-holder,
+.map-holder {
+  overflow: hidden;
+}
+
+.map {
+  -webkit-filter: grayscale(100%) invert(92%) contrast(83%);
+          filter: grayscale(100%) invert(92%) contrast(83%);
+}
+
+.reg-holder {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  -ms-grid-columns: 1;
+      grid-template-columns: 1;
+  -ms-grid-rows: 10% 90%;
+      grid-template-rows: 10% 90%;
+  text-align: center;
+}
+
+.reg-holder .text-holder {
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+}
+
+.reg-holder .form-holder {
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+}
+
+.reg-holder .text-holder h1 {
+  margin-top: 4em;
+  font-size: 4rem;
+  font-family: "Cabin", sans-serif;
+}
+
+.reg-holder .form-holder h2 {
+  font-size: 2.5rem;
+  font-family: "Cabin", sans-serif;
+}
+
+.reg-holder .form-holder p {
+  margin-bottom: 1em;
+  font-family: "Kanit", sans-serif;
+}
+
+.reg-holder .form-holder a {
+  color: #888;
+  font-size: 1.2rem;
+}
+
+.input-text {
+  height: 2em;
+  width: 20em;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #888;
+  color: #fff;
+  background-color: #111;
+}
+
+.input-text:focus {
+  outline: none;
+}
+
+.input-button {
+  background-color: #fff;
+  color: #111;
+  font-size: 1.2rem;
+  height: 2em;
+  width: 7em;
+  border: none;
+  border-radius: 20px;
+}
