@@ -1,1 +1,25 @@
-
+.welcome-holder {
+  margin-top: 5em;
+}
+.news-holder {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+.news {
+  background-color: $secondary-theme-color;
+  border-radius: 1.5em;
+  padding: 1em;
+  margin: 1em;
+  box-shadow: 0.3em 0.3em 5px #000;
+}
+.item {
+  background-color: $secondary-theme-color;
+}
+.item:nth-child(1) {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+.item:nth-child(3) {
+  color: $accent-font-color;
+}

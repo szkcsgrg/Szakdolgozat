@@ -87,26 +87,34 @@ body {
   font-size: 1.2rem;
 }
 
-.input-text {
-  height: 2em;
-  width: 20em;
-  display: block;
-  border: none;
-  border-bottom: 1px solid #888;
-  color: #fff;
-  background-color: #111;
+.welcome-holder {
+  margin-top: 5em;
 }
 
-.input-text:focus {
-  outline: none;
+.news-holder {
+  margin-top: 5em;
+  margin-bottom: 5em;
 }
 
-.input-button {
-  background-color: #fff;
-  color: #111;
-  font-size: 1.2rem;
-  height: 2em;
-  width: 7em;
-  border: none;
-  border-radius: 20px;
+.news {
+  background-color: #2f2d2f;
+  border-radius: 1.5em;
+  padding: 1em;
+  margin: 1em;
+  -webkit-box-shadow: 0.3em 0.3em 5px #000;
+          box-shadow: 0.3em 0.3em 5px #000;
+}
+
+.item {
+  background-color: #2f2d2f;
+}
+
+.item:nth-child(1) {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.item:nth-child(3) {
+  color: #888;
 }
