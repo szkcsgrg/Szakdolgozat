@@ -6,7 +6,8 @@ _2021.11.13._
 
 ## Process:
 
-- 2021.11.13 - Registration page & Login page
+- 2021.11.13. - Registration page & Login page
+- 2021.11.15. - 2021.11.22. - Home page
 
 <br />
 
