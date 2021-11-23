@@ -27,13 +27,12 @@
     <!-- Navbar -->
     <?php include('../Values/navbar.php'); ?>
 
-    <!-- Container -->
-    <div class="container-fluid px-0 d-flex justify-content-center">
-        <div class="row">
-            <!-- Welcome  Message -->
-            <div class="welcome-holder col-12">
-                <h1>Üdv
-                    <?php 
+    <!-- Container align="center"-->
+    <div class="container">
+        <!-- Welcome  Message -->
+        <div align="center" class="welcome-holder row">
+            <h1>Üdv
+                <?php 
                         $email =  $_SESSION ['emailaddress']; 
                         
                         $sql = "SELECT  keresztnev FROM  `kolcsonzok` WHERE  email = '$email'";
@@ -48,21 +47,37 @@
                             }
                         }
                     ?>!
-                </h1>
-                <h2>
-                    <a href="books.php">Keressen</a> számára megfelelő könyvet!
-                </h2>
-            </div>
-
-            <!-- News Feed -->
-            <div class="news-holder col-12 min-vh-100">
-
-            </div>
+            </h1>
+            <h2>
+                <a href="books.php">Keressen</a> számára megfelelő könyvet!
+            </h2>
         </div>
+
+        <!-- News Feed -->
+        <!-- Limit 6 oderder by date -->
+
+        <div class="news-holder row d-flex justify-content-center">
+            <?php
+                        $result = $conn -> query("SELECT  tittle, text, date FROM  `hirek`");
+                        while($row = $result -> fetch_assoc()){                        
+                            echo "<div class='news col-10 col-md-4 col-lg-4'>";
+                            foreach($row as $col){
+                                echo "<div class='item'>".$col."</div>";
+                            }
+                            echo "</div>";
+                        }
+                    ?>
+
+        </div>
+
     </div>
 
+    <!-- Footer -->
     <?php include('../Values/footer.php'); ?>
+
+    <!-- Scripts 
     <script src="../Scripts/Hamburger.js"></script>
+    -->
 </body>
 
 </html>
