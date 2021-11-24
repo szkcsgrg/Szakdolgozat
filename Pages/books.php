@@ -23,17 +23,21 @@
 
 </head>
 
-<body>
+<body class="bg-image">
     <!-- Navbar -->
     <?php include('../Values/navbar.php'); ?>
 
     <!-- Container -->
     <div class="container">
-        <div class="search-holder row">
-            <div class="col-6">
-                <input class="form-control" id="filter" name="filter" placeholder="Szűrés">
+
+        <!-- Searchbar -->
+        <div class="search-holder row d-flex justify-content-center">
+            <div class="col-4">
+                <input class="form-control" id="filter" name="filter" placeholder="Szerző, cím">
             </div>
         </div>
+
+        <!-- Table -->
         <div class="books-holder row">
             <table class="table">
                 <thead>
@@ -41,31 +45,24 @@
                         <th>ID</th>
                         <th>Cím</th>
                         <th>Szerző</th>
-                        <th>Kiadó</th>
                         <th>Terjedelem</th>
-                        <th>Borító</th>
-                        <th>Műveletek</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                     $result = $conn -> query("SELECT konyvID, cim, iro, kiado, terjedelem, borito FROM konyvek");
+                     $result = $conn -> query("SELECT konyvID, cim, iro, terjedelem FROM konyvek");
                      while($row = $result -> fetch_assoc()){
                          //var_dump($row);
                          echo "<tr>";
                             foreach($row as $col){
-                                echo "<td>".$col."</td>";
+                                echo "<td><a href='book.php?id=".$row["konyvID"]."'>".$col."</a></td>";
                             }
-                            $kep = $row["borito"];
-                            echo $kep;
-                            echo "<img src='../Images/$kep' alt='kep'>";
                             echo "<td>
-                                <a href='update.php?id=".$row["konyvID"]." ' class='btn btn-warning'>Szerekesztés</a>
+                                <a href='book.php?id=".$row["konyvID"]."' class='btn btn-primary'>Megtekint</a>
                             </td>";
                          echo "</tr>";
-                         
                      }
-                 ?>
+                    ?>
                 </tbody>
             </table>
         </div>

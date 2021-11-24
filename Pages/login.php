@@ -12,13 +12,10 @@
         $jelszo = sha1($_POST['jelszo']);
         $_SESSION["emailaddress"]=$email;
         
-        //Select From
         $sql = "SELECT  * FROM `kolcsonzok`WHERE  email = '$email' AND jelszo = '$jelszo'";
-        
-        //Execute the query
         $result = mysqli_query($conn, $sql);
-
         $count = mysqli_num_rows($result);
+
         if($count == 1)
         {
             header("Location: home.php");
@@ -70,7 +67,7 @@
 
 </head>
 
-<body>
+<body class="bg-image">
     <!-- Container -->
     <div class="container-fluid px-0">
         <div class="row">

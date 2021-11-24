@@ -93,7 +93,7 @@
 
 </head>
 
-<body>
+<body class="bg-image">
     <!-- Container -->
     <div class="container-fluid px-0">
         <div class="row">
@@ -116,6 +116,7 @@
                         <br>
                         <input class="input-text" type="password" name=jelszoujra placeholder="Jelszó újra">
                         <br>
+
                         <input class="input-button" type="submit" name="submit" value="Regisztrálok">
                     </form>
                     <div class="error-messages">

@@ -23,14 +23,14 @@
 
 </head>
 
-<body>
+<body class="bg-image">
     <!-- Navbar -->
     <?php include('../Values/navbar.php'); ?>
 
     <!-- Container align="center"-->
     <div class="container">
         <!-- Welcome  Message -->
-        <div align="center" class="welcome-holder row">
+        <div class="welcome-holder row text-center">
             <h1>Üdv
                 <?php 
                         $email =  $_SESSION ['emailaddress']; 
@@ -57,10 +57,18 @@
         <!-- Limit 6 oderder by date -->
 
         <div class="news-holder row d-flex justify-content-center">
+            <div class="text-center">
+                <h1 class="col-12">Könyvtárunk Hírei</h1>
+            </div>
+
             <?php
-                        $result = $conn -> query("SELECT  tittle, text, date FROM  `hirek`");
+                        $result = $conn -> query("SELECT tittle, text, date
+                        FROM konyvtar.hirek
+                        Order By date desc
+                        Limit 6
+                        ;");
                         while($row = $result -> fetch_assoc()){                        
-                            echo "<div class='news col-10 col-md-4 col-lg-4'>";
+                            echo "<div class='news col-10 col-md-4 col-lg-3'>";
                             foreach($row as $col){
                                 echo "<div class='item'>".$col."</div>";
                             }
