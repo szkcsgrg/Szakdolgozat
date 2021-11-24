@@ -1,4 +1,4 @@
-<footer class="sticky-bottom">
+<footer class="fixed-bottom">
     <?php
         echo "Footer.php";
     ?>
