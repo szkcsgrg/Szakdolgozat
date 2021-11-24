@@ -10,6 +10,16 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
-  background-color: $main-theme-color;
   color: $main-font-color;
+}
+body {
+  background-color: $main-theme-color;
+}
+
+.bg-image {
+  background-image: url(../Images/1920x1080.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
 }

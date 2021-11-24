@@ -27,8 +27,19 @@ body {
   scroll-behavior: smooth;
   -ms-scroll-snap-type: y mandatory;
       scroll-snap-type: y mandatory;
-  background-color: #111;
   color: #fff;
+}
+
+body {
+  background-color: #111;
+}
+
+.bg-image {
+  background-image: url(../Images/1920x1080.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .reg-holder,
@@ -78,7 +89,7 @@ body {
 }
 
 .reg-holder .form-holder p {
-  margin-bottom: 1em;
+  margin-bottom: 1.2em;
   font-family: "Kanit", sans-serif;
 }
 
@@ -87,8 +98,53 @@ body {
   font-size: 1.2rem;
 }
 
+.reg-holder .form-holder form {
+  margin-top: 1em;
+}
+
+.reg-holder .form-holder form .input-text {
+  width: 15em;
+  margin-bottom: 1em;
+  background-color: #111;
+  border: none;
+  border-bottom: 1px solid grey;
+}
+
+.reg-holder .form-holder form .input-text:focus {
+  outline: none;
+}
+
+.reg-holder .form-holder form .input-button {
+  width: 7em;
+  height: 2em;
+  border-radius: 1em;
+  margin-top: 0.5em;
+  font-size: 1.2rem;
+  background-color: #fff;
+  color: #111;
+  border: none;
+}
+
+.reg-holder .form-holder form .input-button:hover {
+  background-color: #2f2d2f;
+  color: #fff;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
 .welcome-holder {
   margin-top: 5em;
+}
+
+.welcome-holder h2 a {
+  color: #197bff;
+  text-decoration: none;
+}
+
+.welcome-holder h2 a:hover {
+  color: #57bcf2;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .news-holder {
@@ -97,7 +153,9 @@ body {
 }
 
 .news {
-  background-color: #2f2d2f;
+  background-color: #ffffff10;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 1.5em;
   padding: 1em;
   margin: 1em;
@@ -105,16 +163,63 @@ body {
           box-shadow: 0.3em 0.3em 5px #000;
 }
 
-.item {
-  background-color: #2f2d2f;
-}
-
 .item:nth-child(1) {
   font-size: 1.6rem;
   font-weight: bold;
   margin-bottom: 2px;
+  color: #197bff;
 }
 
 .item:nth-child(3) {
   color: #888;
+}
+
+.search-holder {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+table tbody tr td a {
+  text-decoration: none;
+  color: #fff;
+}
+
+table tbody tr td a:hover {
+  text-decoration: none;
+  color: #197bff;
+}
+
+.info-holder {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+.semantic-color {
+  color: #197bff;
+}
+
+.comment {
+  background-color: #ffffff10;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 1.5em;
+  padding: 1.5em;
+  margin: 1em;
+  -webkit-box-shadow: 0.3em 0.3em 5px #000;
+          box-shadow: 0.3em 0.3em 5px #000;
+}
+
+.row:nth-child(1) {
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: #197bff;
+}
+
+.row:nth-child(2) {
+  color: #888;
+}
+
+.margin-bt {
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
