@@ -1,23 +1,13 @@
 # Szakács Gergő - Könyvtári Szoftver
 
 _2021.11.13._
-<br />
-<br />
-
-## Process:
-
-- 2021.11.13. - Registration page & Login page
-- 2021.11.15. - 2021.11.22. - Home page
-
-<br />
-
----
+<br /><br /><br />
 
 ## To Do
 
 - Registration page ✅
 - Login page ✅
-- Home page
+- Home page ✅
   - Navbar
     - Hamburger Menu
     - Notification Menu
@@ -28,10 +18,10 @@ _2021.11.13._
       - On Loan
       - Earlier Loan
       - My comments
-  - Search bar
-  - News Layout
+  - Search bar ✅
+  - News Layout ✅
   - Footer
-- Books page
+- Books page ✅
 - Librarian Page
   - Edit News
   - Accept Comments

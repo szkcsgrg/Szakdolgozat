@@ -138,7 +138,7 @@ body {
 
 .welcome-holder h2 a {
   color: #197bff;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .welcome-holder h2 a:hover {
@@ -190,8 +190,8 @@ table tbody tr td a:hover {
 }
 
 .info-holder {
-  margin-top: 5em;
-  margin-bottom: 5em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 .semantic-color {
@@ -209,17 +209,22 @@ table tbody tr td a:hover {
           box-shadow: 0.3em 0.3em 5px #000;
 }
 
-.row:nth-child(1) {
+.sor:nth-child(1) {
   font-weight: bold;
   margin-bottom: 2px;
   color: #197bff;
 }
 
-.row:nth-child(2) {
+.sor:nth-child(2) {
   color: #888;
 }
 
 .margin-bt {
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.margin-1 {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
 }

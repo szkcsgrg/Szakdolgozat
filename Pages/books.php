@@ -1,4 +1,5 @@
-<?php include('../Values/constans.php'); session_start();?>
+<?php include('../Values/constans.php');
+session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="hu">
@@ -32,7 +33,7 @@
 
         <!-- Searchbar -->
         <div class="search-holder row d-flex justify-content-center">
-            <div class="col-4">
+            <div class="col-lg-4 col-md-6 col-sm-8">
                 <input class="form-control" id="filter" name="filter" placeholder="Szerző, cím">
             </div>
         </div>
@@ -50,18 +51,18 @@
                 </thead>
                 <tbody>
                     <?php
-                     $result = $conn -> query("SELECT konyvID, cim, iro, terjedelem FROM konyvek");
-                     while($row = $result -> fetch_assoc()){
-                         //var_dump($row);
-                         echo "<tr>";
-                            foreach($row as $col){
-                                echo "<td><a href='book.php?id=".$row["konyvID"]."'>".$col."</a></td>";
-                            }
-                            echo "<td>
-                                <a href='book.php?id=".$row["konyvID"]."' class='btn btn-primary'>Megtekint</a>
+                    $result = $conn->query("SELECT konyvID, cim, iro, terjedelem FROM konyvek");
+                    while ($row = $result->fetch_assoc()) {
+                        //var_dump($row);
+                        echo "<tr>";
+                        foreach ($row as $col) {
+                            echo "<td><a href='book.php?id=" . $row["konyvID"] . "'>" . $col . "</a></td>";
+                        }
+                        echo "<td>
+                                <a href='book.php?id=" . $row["konyvID"] . "' class='btn btn-primary'>Megtekint</a>
                             </td>";
-                         echo "</tr>";
-                     }
+                        echo "</tr>";
+                    }
                     ?>
                 </tbody>
             </table>
@@ -74,7 +75,7 @@
 
     <!-- Scripts -->
     <script src="../Scripts/jquery.min.js"></script>
-    <script src="../Scripts/app.js"></script>
+    <script src="../Scripts/search.js"></script>
 </body>
 
 </html>

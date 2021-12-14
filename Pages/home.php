@@ -1,4 +1,5 @@
-<?php include('../Values/constans.php'); session_start();?>
+<?php include('../Values/constans.php');
+session_start(); ?>
 <!DOCTYPE html>
 <html lang="hu">
 
@@ -29,24 +30,28 @@
 
     <!-- Container align="center"-->
     <div class="container">
+        <!-- Not allowed User -->
+        <div class="notAllowedUser text-center">
+            <?php include_once('../Values/notalloweduser.php') ?>
+        </div>
         <!-- Welcome  Message -->
         <div class="welcome-holder row text-center">
             <h1>Üdv
-                <?php 
-                        $email =  $_SESSION ['emailaddress']; 
-                        
-                        $sql = "SELECT  keresztnev FROM  `kolcsonzok` WHERE  email = '$email'";
-                        //Execute the query
-                        $result = mysqli_query($conn, $sql);
-        
-                        if($result->num_rows > 0) {
-                            while($row = $result->fetch_assoc()) {
-                                foreach ($row as $field) {
-                                    echo $field;
-                                }
-                            }
+                <?php
+                $email =  $_SESSION['emailaddress'];
+
+                $sql = "SELECT  keresztnev FROM  `kolcsonzok` WHERE  email = '$email'";
+                //Execute the query
+                $result = mysqli_query($conn, $sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        foreach ($row as $field) {
+                            echo $field;
                         }
-                    ?>!
+                    }
+                }
+                ?>!
             </h1>
             <h2>
                 <a href="books.php">Keressen</a> számára megfelelő könyvet!
@@ -62,19 +67,19 @@
             </div>
 
             <?php
-                        $result = $conn -> query("SELECT tittle, text, date
+            $result = $conn->query("SELECT tittle, text, date
                         FROM konyvtar.hirek
                         Order By date desc
                         Limit 6
                         ;");
-                        while($row = $result -> fetch_assoc()){                        
-                            echo "<div class='news col-10 col-md-4 col-lg-3'>";
-                            foreach($row as $col){
-                                echo "<div class='item'>".$col."</div>";
-                            }
-                            echo "</div>";
-                        }
-                    ?>
+            while ($row = $result->fetch_assoc()) {
+                echo "<div class='news col-10 col-md-4 col-lg-3'>";
+                foreach ($row as $col) {
+                    echo "<div class='item'>" . $col . "</div>";
+                }
+                echo "</div>";
+            }
+            ?>
 
         </div>
 

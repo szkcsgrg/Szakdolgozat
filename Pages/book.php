@@ -1,4 +1,10 @@
-<?php include('../Values/constans.php'); session_start();?>
+<?php
+include_once('../Values/constans.php');
+include('../Values/automatic.php');
+session_start();
+$_SESSION['message'] = " ";
+$_SESSION['lefoglalta'] = " ";
+?>
 
 <!DOCTYPE html>
 <html lang="hu">
@@ -27,17 +33,23 @@
     <!-- Navbar -->
     <?php include('../Values/navbar.php'); ?>
 
+
     <!-- Container -->
     <div class="container">
         <div class="row info-holder row d-flex justify-content-center">
             <?php
-                if(isset($_GET["id"])){
-                    $result = $conn -> query ("SELECT * FROM  konyvek WHERE konyvID=".$_GET["id"])->fetch_array();
-                }
+            if (isset($_GET["id"])) {
+                $_id = $_GET["id"];
+                $result = $conn->query("SELECT * FROM  konyvek WHERE konyvID=" . $_GET["id"])->fetch_array();
+            } else {
+                //Show a div 100vh. Error Message 
+            }
             ?>
+            <!-- Borito Kep -->
             <div align="center" class="col-12 col-md-6 margin-bt">
                 <img src="<?php echo $result["borito"] ?>" alt="kep" style="width: 70%;">
             </div>
+            <!-- Konyv Adatok -->
             <div class="col-12 col-md-6 margin-bt">
                 <h1><?php echo $result["cim"] ?></h1>
                 <p><span class="semantic-color">Szerző: </span><?php echo $result["iro"] ?></p>
@@ -46,43 +58,89 @@
                 <p><span class="semantic-color">Kiadás Dátuma: </span><?php echo $result["kiadasDatuma"] ?></p>
                 <p><span class="semantic-color">Leírás: </span><?php echo $result["leiras"] ?></p>
 
-                <!-- Lefoglalas, Kedvencekhez ad , Megjeloles olvasott kent -->
+                <!-- Lefoglalas, Kedvencekhez ad , Megjeloles olvasottkent -->
                 <div class="col-12">
-                    <button class="btn btn-primary">Lefoglalom</button>
-                    #warning Lefoglalom
+                    <form action="../Values/lefoglalom.php?id=<?= $_id ?>" method="post">
+                        <?php
+                        echo "<script src='../Scripts/jquery.min.js'></script>";
+                        $_lefoglalva = "";
+                        $_SESSION['lefoglalta'] = "";
+                        $res = $conn->query("SELECT * FROM konyvtar.lefoglalva Where konyvID = $_id Order By foglalasKezdete desc Limit 1");
+                        while ($row = $res->fetch_assoc()) {
+                            $_lefoglalva = $row['lefoglalva'];
+                        }
+
+                        if ($_lefoglalva == 1) {
+                            echo "<script src='../Scripts/btnDisable.js'></script> ";
+                        }
+                        if ($_lefoglalva == 0 || $_lefoglalva == 2) {
+                            echo "<script src='../Scripts/btnEnable.js'></script> ";
+                        }
+                        ?>
+                        <input type="submit" value="Lefoglalom" class="btn btn-primary lefoglalom"></input>
+                    </form>
+                </div>
+                <div class="response text-center">
+                    <?php
+                    echo $_SESSION['lefoglalta'];
+                    ?>
+                </div>
+            </div>
+
+
+
+
+            <!-- Megjegyzesek -->
+            <div class="col-12 margin-bt">
+                <div class='text-center'>
+                    <h1>Megjegyzések</h1>
+                </div>
+                <!-- Uj megjegyzes -->
+                <form method="POST" class="margin-1 row justify-content-center">
+                    <div class="col-10 col-md-6 col-lg-6 col-xl-8">
+                        <input class="form-control" name="newcom" type="text" placeholder="Új megjegyzés">
+                    </div>
+                    <div class="col-3 col-md-2 col-lg-2 col-xl-1">
+                        <input type="submit" name="mentes" value="Mentés" class="btn btn-primary">
+                    </div>
+                    <?php
+                    if (isset($_POST['mentes'])) {
+                        $email =  $_SESSION['emailaddress'];
+                        $_id = $_GET["id"];
+                        $velemeny = $_POST["newcom"];
+                        $date = date("Y.m.d");
+                        if (empty($_POST['newcom'])) {
+                            $_SESSION['message'] = "Nem töltötte ki a mezőt!";
+                        } else {
+                            $conn->query("INSERT INTO velemenyek(emailID,konyvID,velemeny, datum) VALUES('$email', '$_id', '$velemeny', '$date')");
+                            $_SESSION['message'] = "Mentettük a megjegyzését. Megjegyzése elbírálás alá kerül.";
+                        }
+                    }
+                    ?>
+                </form>
+
+
+                <!-- Message -->
+                <div class="response text-center">
+                    <?php
+                    echo $_SESSION['message'];
+                    ?>
                 </div>
 
-            </div>
-            <div class="col-12 margin-bt">
-                <!-- Megjegyzesek -->
-                <?php 
-                    $sql = "SELECT emailID, velemeny, reakcio FROM  velemenyek WHERE konyvID=".$_GET["id"]." Order By date desc Limit 6 ";
-                    $result = mysqli_query($conn, $sql);
-                    $count = mysqli_num_rows($result);
-                    if($count > 0){
-                        echo "<div class='text-center'>
-                                    <h1>Megjegyzések</h1>
-                                </div>";
-                    }
-                ?>
-                <!-- Uj megjegyzes -->
-                #warning Uj megjegyzes
-
                 <!-- Comments -->
-                <div align="center" class="comments">
+                <div class="comments row justify-content-center">
                     <?php
-                        if(isset($_GET["id"])){
-                            $result = $conn -> query ("SELECT emailID, velemeny, reakcio FROM  velemenyek WHERE konyvID=".$_GET["id"]." Order By date desc Limit 6 ");
-                        
-                            while($row = $result -> fetch_assoc()){                        
-                                echo "<div class='comment col-10'>";
-                                foreach($row as $col){
-                                    echo "<div class='row'>".$col."</div>";
-                                }
-                                echo "</div>";
+                    if (isset($_GET["id"])) {
+                        $result = $conn->query("SELECT felhasznalonev, velemeny FROM konyvtar.velemenyek INNER JOIN konyvtar.kolcsonzok on kolcsonzok.email = velemenyek.emailID WHERE konyvID=" . $_GET["id"] . " AND allowed='1' Order By datum desc Limit 3") or die($conn->error);
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<div class='comment col-10 justify-content-left'>";
+                            foreach ($row as $col) {
+                                echo "<div class='sor'>" . $col . "</div>";
                             }
+                            echo "</div>";
                         }
-                ?>
+                    }
+                    ?>
                 </div>
             </div>
         </div>

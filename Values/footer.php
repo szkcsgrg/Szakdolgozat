@@ -1,5 +1,5 @@
-<footer class="fixed-bottom">
+<footer class="static-bottom">
     <?php
-        echo "Footer.php";
+    echo "Footer.php";
     ?>
 </footer>

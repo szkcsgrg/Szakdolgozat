@@ -106,15 +106,18 @@
                     <h2>Regisztrálás</h2>
                     <p><a href="Pages/login.php">Már regisztráltam</a></p>
                     <form action="" method="POST">
-                        <input class="input-text" type="text" name=email placeholder="Email cím">
+                        <input class="input-text" type="text" name=email placeholder="Email cím"
+                            pattern="[a-zA-Z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$">
                         <br>
                         <input class="input-text" type="text" name=vezeteknev placeholder="Vezetéknév">
                         <br>
                         <input class="input-text" type="text" name=keresztnev placeholder="Keresztnév">
                         <br>
-                        <input class="input-text" type="password" name=jelszo placeholder="Jelszó">
+                        <input class="input-text" type="password" name=jelszo placeholder="Jelszó" pattern=".{8,}"
+                            title="8 vagy több karakter">
                         <br>
-                        <input class="input-text" type="password" name=jelszoujra placeholder="Jelszó újra">
+                        <input class="input-text" type="password" name=jelszoujra placeholder="Jelszó újra"
+                            pattern=".{8,}" title="8 vagy több karakter">
                         <br>
 
                         <input class="input-button" type="submit" name="submit" value="Regisztrálok">
