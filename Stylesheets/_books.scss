@@ -10,3 +10,24 @@ table tbody tr td a:hover {
   text-decoration: none;
   color: $semantic-theme-color;
 }
+
+.books a {
+  text-decoration: none;
+}
+#cim {
+  margin-top: 0.5em;
+}
+.eachB {
+  background-color: #ffffff10;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 1.75em;
+  margin: 1em;
+  padding: 1em;
+}
+.eachB img {
+  width: 65%;
+}
+.btn-holder {
+  margin-top: 6em;
+}

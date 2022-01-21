@@ -1,0 +1,72 @@
+#hirek,
+#hozzaszolasok,
+#foglalasok {
+  background-color: #ffffff10;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 1.5em;
+  padding: 1.5em;
+  margin: 1em;
+  box-shadow: 0.3em 0.3em 5px #000;
+}
+.news {
+  overflow: visible;
+  position: relative;
+}
+#pen,
+#bin {
+  position: absolute;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 1em;
+  text-align: center;
+  padding-top: 0.5em;
+  top: -1.25em;
+}
+#pen {
+  right: 2.8em;
+  background: rgb(2, 181, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 181, 0, 1) 0%,
+    rgba(2, 85, 0, 1) 100%
+  );
+}
+#bin {
+  background: rgb(181, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(181, 0, 0, 1) 0%,
+    rgba(85, 0, 0, 1) 100%
+  );
+  right: 0;
+}
+.tittle {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: $semantic-theme-color;
+}
+.text {
+  margin-bottom: 2em;
+}
+.date {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 1em;
+  color: $accent-font-color;
+}
+#newbtn {
+  background: rgb(0, 11, 181);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 11, 181, 1) 0%,
+    rgba(0, 221, 213, 1) 100%
+  );
+  text-align: center;
+  height: 4em;
+  width: 4em;
+  margin-top: 2em;
+  border-radius: 2em;
+  border: 0px;
+}

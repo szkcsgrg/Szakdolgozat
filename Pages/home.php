@@ -1,5 +1,10 @@
-<?php include('../Values/constans.php');
-session_start(); ?>
+<?php
+include('../Values/constans.php');
+session_start();
+$email =  $_SESSION['emailaddress'];
+$re = $conn->query("SELECT adminE FROM  kolcsonzok WHERE email = '$email'")->fetch_array();
+$_SESSION['adminE'] = $re['adminE'];
+?>
 <!DOCTYPE html>
 <html lang="hu">
 
@@ -15,6 +20,7 @@ session_start(); ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
+    <script src="../Scripts/jquery.min.js"></script>
 
 
     <!-- Stylesheets -->
@@ -26,31 +32,29 @@ session_start(); ?>
 
 <body class="bg-image">
     <!-- Navbar -->
-    <?php include('../Values/navbar.php'); ?>
+    <?php
+    include('../Values/navbar.php');
+    if ($_SESSION['adminE'] == 1) {
+        echo "<script src='../Scripts/adminE.js'></script>";
+    }
+    ?>
 
-    <!-- Container align="center"-->
-    <div class="container">
-        <!-- Not allowed User -->
+    <!-- Container-->
+    <div class="container-fluid">
+        <!-- Not allowed User 
         <div class="notAllowedUser text-center">
-            <?php include_once('../Values/notalloweduser.php') ?>
+            <script src="../Scripts/jquery.min.js"></script>
+            <?php // include_once('../Values/notalloweduser.php') 
+            ?>
+            <h1>Illetéktelen belépés</h1>
         </div>
+        -->
         <!-- Welcome  Message -->
         <div class="welcome-holder row text-center">
             <h1>Üdv
                 <?php
-                $email =  $_SESSION['emailaddress'];
-
-                $sql = "SELECT  keresztnev FROM  `kolcsonzok` WHERE  email = '$email'";
-                //Execute the query
-                $result = mysqli_query($conn, $sql);
-
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        foreach ($row as $field) {
-                            echo $field;
-                        }
-                    }
-                }
+                $result = $conn->query("SELECT * FROM  kolcsonzok WHERE email = '$email'")->fetch_array();
+                echo $result['keresztnev'];
                 ?>!
             </h1>
             <h2>
@@ -62,21 +66,17 @@ session_start(); ?>
         <!-- Limit 6 oderder by date -->
 
         <div class="news-holder row d-flex justify-content-center">
-            <div class="text-center">
+            <div class="text-center" id="hir">
                 <h1 class="col-12">Könyvtárunk Hírei</h1>
             </div>
 
             <?php
-            $result = $conn->query("SELECT tittle, text, date
-                        FROM konyvtar.hirek
-                        Order By date desc
-                        Limit 6
-                        ;");
+            $result = $conn->query("SELECT tittle, text, date FROM konyvtar.hirek Order By date desc Limit 6;");
             while ($row = $result->fetch_assoc()) {
                 echo "<div class='news col-10 col-md-4 col-lg-3'>";
-                foreach ($row as $col) {
-                    echo "<div class='item'>" . $col . "</div>";
-                }
+                echo "<div class='item tittle'>" . $row['tittle'] . "</div>";
+                echo "<div class='item text' style='white-space:pre-wrap'>" . $row['text'] . "</div>";
+                echo "<div class='item date'>" . $row['date'] . "</div>";
                 echo "</div>";
             }
             ?>
@@ -86,7 +86,8 @@ session_start(); ?>
     </div>
 
     <!-- Footer -->
-    <?php include('../Values/footer.php'); ?>
+    <?php //include('../Values/footer.php'); 
+    ?>
 
     <!-- Scripts 
     <script src="../Scripts/Hamburger.js"></script>

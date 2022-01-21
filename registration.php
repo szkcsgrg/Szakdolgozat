@@ -1,74 +1,73 @@
-<!-- Included PHP's -->
-<?php 
-    include('Values/constans.php');
-    session_start();
-    $_SESSION["errorpassword"] = " ";
-    $_SESSION["errorfield"] = " ";
+<?php
+include('Values/constans.php');
+session_start();
+$_SESSION["errorpassword"] = " ";
+$_SESSION["errorfield"] = " ";
 
 
-    if(isset($_POST['submit']))
-    {
-        //Values
-        $result = 0;
+if (isset($_POST['submit'])) {
+    //Values
+    $result = 0;
+    $ableToUpload = false;
+
+    $email = $_POST['email'];
+    $_SESSION["emailaddress"] = $email;
+    $vezeteknev = $_POST['vezeteknev'];
+    $keresztnev = $_POST['keresztnev'];
+    $felhasznalonev = $vezeteknev . ' ' . $keresztnev;
+    $jelszo = "NULL";
+    if ($_POST['jelszo'] == $_POST['jelszoujra']) {
+        $jelszo = sha1($_POST['jelszo']);
+        $ableToUpload = true;
+    } else {
+        // A két jelszó nem egyezik!
+        $_SESSION["errorpassword"] = "A két jelszó nem egyezik!";
+    }
+
+
+    if (
+        empty($_POST["email"]) ||
+        empty($_POST["vezeteknev"]) ||
+        empty($_POST["keresztnev"]) ||
+        empty($_POST["jelszo"]) ||
+        empty($_POST["jelszoujra"])
+    ) {
         $ableToUpload = false;
-        
-        $email = $_POST['email'];
-        $_SESSION["emailaddress"]=$email;
-        $vezeteknev = $_POST['vezeteknev'];
-        $keresztnev = $_POST['keresztnev'];
-        $felhasznalonev = $vezeteknev.' '.$keresztnev;
-        $jelszo = "NULL";
-        if($_POST['jelszo'] == $_POST['jelszoujra']){
-            $jelszo = sha1($_POST['jelszo']);
-            $ableToUpload = true;
-        }else{
-            // A két jelszó nem egyezik!
-            $_SESSION["errorpassword"] = "A két jelszó nem egyezik!";
-        }
-        
-        
-        if (empty($_POST["email"]) || 
-            empty($_POST["vezeteknev"]) || 
-            empty($_POST["keresztnev"]) ||
-            empty($_POST["jelszo"]) ||
-            empty($_POST["jelszoujra"])
-            ){
-            $ableToUpload = false;
 
-            //Töltsön ki minden mezőt!
-            $_SESSION["errorfield"] = "Töltsön ki minden mezőt!";
-            
-            $email = clean_data($_POST["email"]);
-            $vezeteknev = clean_data($_POST["vezeteknev"]);
-            $keresztnev = clean_data($_POST["keresztnev"]);
-            $jelszo = clean_data($_POST["jelszo"]);
-            $jelszo = clean_data($_POST["jelszoujra"]);
-        }
-        
-        //Insert Into
-        $sql = "INSERT INTO  kolcsonzok SET
+        //Töltsön ki minden mezőt!
+        $_SESSION["errorfield"] = "Töltsön ki minden mezőt!";
+
+        $email = clean_data($_POST["email"]);
+        $vezeteknev = clean_data($_POST["vezeteknev"]);
+        $keresztnev = clean_data($_POST["keresztnev"]);
+        $jelszo = clean_data($_POST["jelszo"]);
+        $jelszo = clean_data($_POST["jelszoujra"]);
+    }
+
+    //Insert Into
+    $sql = "INSERT INTO  kolcsonzok SET
             email = '$email',
             vezeteknev = '$vezeteknev',
             keresztnev = '$keresztnev',
             felhasznalonev = '$felhasznalonev',
             jelszo = '$jelszo'
         ";
-        
-        
-        //Execute data to DB
-        if($ableToUpload == true)
-        {
-            $result = mysqli_query($conn, $sql) or die(mysqli_error($conn)) ;
-            header("Location: Pages/home.php");
-            die();
-        }
+
+
+    //Execute data to DB
+    if ($ableToUpload == true) {
+        $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+        header("Location: Pages/home.php");
+        die();
     }
-    function clean_data($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
+}
+function clean_data($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 ?>
 
 <!DOCTYPE html>
@@ -124,8 +123,8 @@
                     </form>
                     <div class="error-messages">
                         <?php
-                            echo "</br>". $_SESSION["errorpassword"];
-                            echo "</br>". $_SESSION["errorfield"];
+                        echo "</br>" . $_SESSION["errorpassword"];
+                        echo "</br>" . $_SESSION["errorfield"];
                         ?>
                     </div>
                 </div>

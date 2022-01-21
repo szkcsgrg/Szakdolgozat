@@ -3,7 +3,6 @@ include_once('../Values/constans.php');
 include('../Values/automatic.php');
 session_start();
 $_SESSION['message'] = " ";
-$_SESSION['lefoglalta'] = " ";
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +19,7 @@ $_SESSION['lefoglalta'] = " ";
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
+    <script src="../Scripts/jquery.min.js"></script>
 
 
     <!-- Stylesheets -->
@@ -31,7 +31,12 @@ $_SESSION['lefoglalta'] = " ";
 
 <body class="bg-image">
     <!-- Navbar -->
-    <?php include('../Values/navbar.php'); ?>
+    <?php
+    include('../Values/navbar.php');
+    if ($_SESSION['adminE'] == 1) {
+        echo "<script src='../Scripts/adminE.js'></script>";
+    }
+    ?>
 
 
     <!-- Container -->
@@ -64,7 +69,6 @@ $_SESSION['lefoglalta'] = " ";
                         <?php
                         echo "<script src='../Scripts/jquery.min.js'></script>";
                         $_lefoglalva = "";
-                        $_SESSION['lefoglalta'] = "";
                         $res = $conn->query("SELECT * FROM konyvtar.lefoglalva Where konyvID = $_id Order By foglalasKezdete desc Limit 1");
                         while ($row = $res->fetch_assoc()) {
                             $_lefoglalva = $row['lefoglalva'];
@@ -79,11 +83,6 @@ $_SESSION['lefoglalta'] = " ";
                         ?>
                         <input type="submit" value="Lefoglalom" class="btn btn-primary lefoglalom"></input>
                     </form>
-                </div>
-                <div class="response text-center">
-                    <?php
-                    echo $_SESSION['lefoglalta'];
-                    ?>
                 </div>
             </div>
 

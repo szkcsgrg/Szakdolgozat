@@ -1,5 +1,6 @@
 <?php include('../Values/constans.php');
-session_start(); ?>
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="hu">
@@ -15,6 +16,7 @@ session_start(); ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
+    <script src="../Scripts/jquery.min.js"></script>
 
 
     <!-- Stylesheets -->
@@ -26,7 +28,12 @@ session_start(); ?>
 
 <body class="bg-image">
     <!-- Navbar -->
-    <?php include('../Values/navbar.php'); ?>
+    <?php
+    include('../Values/navbar.php');
+    if ($_SESSION['adminE'] == 1) {
+        echo "<script src='../Scripts/adminE.js'></script>";
+    }
+    ?>
 
     <!-- Container -->
     <div class="container">
@@ -38,8 +45,30 @@ session_start(); ?>
             </div>
         </div>
 
-        <!-- Table -->
-        <div class="books-holder row">
+        <!-- Switch -->
+        <div class="btn-holder col-12 d-flex p-2">
+            <div class="col-3">
+                <form action="" method="post">
+                    <button name="list" class="btn-list btn btn-primary">
+                        <i class="bi bi-table"></i>
+                    </button>
+                    <button name="images" class="btn-images btn btn-secondary">
+                        <i class="bi bi-grid-3x3-gap-fill"></i>
+                    </button>
+                </form>
+                <?php
+                if (isset($_POST['list'])) {
+                    echo "<script src='../Scripts/switchToList.js'></script>";
+                }
+                if (isset($_POST['images'])) {
+                    echo "<script src='../Scripts/switchToImages.js'></script>";
+                }
+                ?>
+            </div>
+        </div>
+
+        <!-- Table View -->
+        <div class="list-view col-12 books-holder row d-block">
             <table class="table">
                 <thead>
                     <tr>
@@ -53,7 +82,6 @@ session_start(); ?>
                     <?php
                     $result = $conn->query("SELECT konyvID, cim, iro, terjedelem FROM konyvek");
                     while ($row = $result->fetch_assoc()) {
-                        //var_dump($row);
                         echo "<tr>";
                         foreach ($row as $col) {
                             echo "<td><a href='book.php?id=" . $row["konyvID"] . "'>" . $col . "</a></td>";
@@ -67,15 +95,29 @@ session_start(); ?>
                 </tbody>
             </table>
         </div>
+
+        <!-- Image View-->
+        <div class="image-view col-12 row justify-content-center d-none">
+            <?php
+            $result = $conn->query("SELECT konyvID, cim, iro, borito FROM  konyvek");
+            while ($row = $result->fetch_assoc()) {
+                echo "<a href='book.php?id=" . $row["konyvID"] . "' class='col-4'>";
+                echo "<div class='eachB text-center'>";
+                echo "<img src=" . $row['borito'] . " alt='borito'>";
+                echo "<h4 id='cim' class='text-primary'>" . $row['cim'] . "</h4>";
+                echo "<p>" . $row['iro'] . "</p>";
+                echo "</div>";
+                echo "</a>";
+            }
+
+            ?>
+        </div>
     </div>
 
 
     <!-- Footer -->
     <?php include('../Values/footer.php'); ?>
 
-    <!-- Scripts -->
-    <script src="../Scripts/jquery.min.js"></script>
-    <script src="../Scripts/search.js"></script>
 </body>
 
 </html>
