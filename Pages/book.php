@@ -95,9 +95,10 @@ $_SESSION['message'] = " ";
                     <h1>Megjegyzések</h1>
                 </div>
                 <!-- Uj megjegyzes -->
-                <form method="POST" class="margin-1 row justify-content-center">
+                <form method="POST" class="margin-1 row justify-content-center align-items-center">
                     <div class="col-10 col-md-6 col-lg-6 col-xl-8">
-                        <input class="form-control" name="newcom" type="text" placeholder="Új megjegyzés">
+                        <textarea type='text-area' name='newcom' class='form-control' rows='2'
+                            placeholder='Új megjegyzés'></textarea>
                     </div>
                     <div class="col-3 col-md-2 col-lg-2 col-xl-1">
                         <input type="submit" name="mentes" value="Mentés" class="btn btn-primary">

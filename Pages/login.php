@@ -1,47 +1,46 @@
 <!-- Included PHP -->
 <?php
-    include('../Values/constans.php');   
-    session_start();
-    $_SESSION["errordata"] = " ";
-    $_SESSION["errorfield"]= " ";
+include('../Values/constans.php');
+session_start();
+$_SESSION["errordata"] = " ";
+$_SESSION["errorfield"] = " ";
 
-    if(isset($_POST['submit']))
-    {
-        //Values
-        $email = $_POST['email'];
-        $jelszo = sha1($_POST['jelszo']);
-        $_SESSION["emailaddress"]=$email;
-        
-        $sql = "SELECT  * FROM `kolcsonzok`WHERE  email = '$email' AND jelszo = '$jelszo'";
-        $result = mysqli_query($conn, $sql);
-        $count = mysqli_num_rows($result);
+if (isset($_POST['submit'])) {
+    //Values
+    $email = $_POST['email'];
+    $jelszo = sha1($_POST['jelszo']);
+    $_SESSION["emailaddress"] = $email;
 
-        if($count == 1)
-        {
-            header("Location: home.php");
-        }
-        else{
-            //Ellenőrízze, beírt adatait!
-            $_SESSION["errordata"] ="Ellenőrízze, beírt adatait!";
-        }
-        
+    $sql = "SELECT  * FROM `kolcsonzok`WHERE  email = '$email' AND jelszo = '$jelszo'";
+    $result = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($result);
 
-        if (empty($_POST["email"]) || 
-            empty($_POST["jelszo"])
-            ){
-            $ableToUpload = false;
-            //Töltsön ki minden mezőt!
-            $_SESSION["errorfield"] ="Töltsön ki minden mezőt!";
-            $email = clean_data($_POST["email"]);
-            $jelszo = clean_data($_POST["jelszo"]);
-        }
+    if ($count == 1) {
+        header("Location: home.php");
+    } else {
+        //Ellenőrízze, beírt adatait!
+        $_SESSION["errordata"] = "Ellenőrízze, beírt adatait!";
     }
-    function clean_data($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
+
+
+    if (
+        empty($_POST["email"]) ||
+        empty($_POST["jelszo"])
+    ) {
+        $ableToUpload = false;
+        //Töltsön ki minden mezőt!
+        $_SESSION["errorfield"] = "Töltsön ki minden mezőt!";
+        $email = clean_data($_POST["email"]);
+        $jelszo = clean_data($_POST["jelszo"]);
     }
+}
+function clean_data($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 ?>
 
 
@@ -88,8 +87,8 @@
                     </form>
                     <div class="error-messages">
                         <?php
-                            echo "</br>". $_SESSION["errordata"];
-                            echo "</br>". $_SESSION["errorfield"];
+                        echo "</br>" . $_SESSION["errordata"];
+                        echo "</br>" . $_SESSION["errorfield"];
                         ?>
                     </div>
                 </div>

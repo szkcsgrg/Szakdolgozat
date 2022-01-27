@@ -81,7 +81,29 @@ session_start();
 
             </div>
             <div id="hozzaszolasok" class="col-10 d-none">
-                <h2>Hozzászólások</h2>
+                <div class="news-holder row d-flex justify-content-center">
+                    <div class="text-center" id="hir">
+                        <h1 class="col-12">Hozzászólások</h1>
+                    </div>
+                    <?php
+                    $result = $conn->query("SELECT * FROM (konyvtar.velemenyek Inner join konyvtar.konyvek on velemenyek.konyvID = konyvek.konyvID) inner join konyvtar.kolcsonzok on velemenyek.emailID = kolcsonzok.email Where allowed is null");
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<div class='news col-10 col-md-4 col-lg-3'>";
+                        echo "<a href='../Values/save.php?id=" . $row["velemenyID"] . " '>
+                                    <i class='bi bi-check-lg' id='pen'></i>
+                                </a>";
+                        echo "<a href='../Values/delete.php?id=" . $row["velemenyID"] . " '>
+                                    <i class='bi bi-trash-fill' id='bin'></i>
+                                </a>";
+                        echo "<div class='item tittle'>" . $row['felhasznalonev'] . "</div>";
+                        echo "<div class='item utittle'>(" . $row['emailID'] . ")</div>";
+                        echo "<br>";
+                        echo "<div class='item text' style='white-space:pre-wrap'>" . $row['cim'] . " - " . $row['velemeny'] . "</div>";
+                        echo "<div class=' item date'>" . $row['datum'] . "</div>";
+                        echo "</div>";
+                    }
+                    ?>
+                </div>
             </div>
             <div id="foglalasok" class="col-10 d-none">
                 <h2>Foglalások</h2>
