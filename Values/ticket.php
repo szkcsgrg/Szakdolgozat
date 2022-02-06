@@ -20,6 +20,7 @@
 </head>
 
 <body class="bg-image">
+    <!-- Navbar Start -->
     <nav class="sticky-top col-12">
         <ul class='d-flex'>
             <div class="me-auto">
@@ -27,7 +28,9 @@
             </div>
         </ul>
     </nav>
+    <!-- Navbar End -->
 
+    <!-- Container Start -->
     <div class="container-fluid text-center">
         <div class="row justify-content-center text-center m-4">
             <h1 class="m-5">Jelszó Módósítás</h1>
@@ -35,16 +38,16 @@
                 <input type='text' name='email' class='form-control m-2' placeholder='Email cím'>
                 <input type='submit' name='submit' value='Küldés' class='btn btn-success m-2'>
             </form>
+            <?php
+            if (isset($_POST['submit']) && isset($_POST['email'])) {
+                include_once "../Values/constans.php";
+                $today = date("Y.m.d.");
+                $email = $_POST['email'];
+                $conn->query("INSERT INTO `konyvtar`.`tickets` (`emailID`, `datum`) VALUES ('" . $email . "', '" . $today . "');");
+                echo "Jelszó módósítási kérését mentettük. <br> A következő lépés: fáradjon be a könyvtárunkba!";
+            }
+            ?>
         </div>
     </div>
-    <?php
-    if (isset($_POST['submit']) && isset($_POST['email'])) {
-        include_once "../Values/constans.php";
-        $today = date("Y.m.d.");
-        $email = $_POST['email'];
-        $conn->query("INSERT INTO `konyvtar`.`tickets` (`emailID`, `datum`) VALUES ('" . $email . "', '" . $today . "');");
-        echo "Jelszó módósítási kérését mentettük. <br> A következő lépés: fáradjon be a könyvtárunkba!";
-    }
-    ?>
-    </div>
+    <!-- Container End -->
 </body>

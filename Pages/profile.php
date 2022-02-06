@@ -12,13 +12,11 @@ include_once('../Values/session.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Könyvtár - Könyvek</title>
 
-
     <!-- Srcipts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <script src="../Scripts/jquery.min.js"></script>
-
 
     <!-- Stylesheets -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -28,13 +26,14 @@ include_once('../Values/session.php');
 </head>
 
 <body class="bg-image">
-    <!-- Navbar -->
+    <!-- Navbar Start -->
     <?php
     include('../Values/navbar.php');
     if ($_SESSION['adminE'] == 1) {
         echo "<script src='../Scripts/adminE.js'></script>";
     }
     ?>
+    <!-- Navbar End -->
 
     <!-- Container Start-->
     <div class="container-fluid">

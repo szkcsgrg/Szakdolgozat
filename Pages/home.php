@@ -39,17 +39,10 @@ $_SESSION['adminE'] = $re['adminE'];
     }
     ?>
 
-    <!-- Container-->
+    <!-- Container Start -->
     <div class="container-fluid">
-        <!-- Not allowed User 
-        <div class="notAllowedUser text-center">
-            <script src="../Scripts/jquery.min.js"></script>
-            <?php // include_once('../Values/notalloweduser.php') 
-            ?>
-            <h1>Illetéktelen belépés</h1>
-        </div>
-        -->
-        <!-- Welcome  Message -->
+
+        <!-- Welcome  Message Start-->
         <div class="welcome-holder row text-center">
             <h1>Üdv
                 <?php
@@ -61,15 +54,13 @@ $_SESSION['adminE'] = $re['adminE'];
                 <a href="books.php">Keressen</a> számára megfelelő könyvet!
             </h2>
         </div>
+        <!-- Welcome  Message End-->
 
-        <!-- News Feed -->
-        <!-- Limit 6 oderder by date -->
-
+        <!-- News Feed Start -->
         <div class="news-holder row d-flex justify-content-center">
             <div class="text-center" id="hir">
                 <h1 class="col-12">Könyvtárunk Hírei</h1>
             </div>
-
             <?php
             $result = $conn->query("SELECT tittle, text, date FROM konyvtar.hirek Order By date desc Limit 6;");
             while ($row = $result->fetch_assoc()) {
@@ -80,18 +71,11 @@ $_SESSION['adminE'] = $re['adminE'];
                 echo "</div>";
             }
             ?>
-
         </div>
+        <!-- News Feed End -->
 
     </div>
-
-    <!-- Footer -->
-    <?php //include('../Values/footer.php'); 
-    ?>
-
-    <!-- Scripts 
-    <script src="../Scripts/Hamburger.js"></script>
-    -->
+    <!-- Container End -->
 </body>
 
 </html>

@@ -152,14 +152,6 @@ body {
   transition: 0.5s;
 }
 
-.notAllowedUser {
-  margin: 0;
-  height: 100vh;
-  width: 100%;
-  color: #fff;
-  background-color: #111;
-}
-
 .welcome-holder {
   margin-top: 5em;
   margin-bottom: 5em;

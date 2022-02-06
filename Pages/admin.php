@@ -14,7 +14,6 @@ if (!isset($_SESSION['adminE'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Könyvtár - Admin felület</title>
 
-
     <!-- Srcipts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
@@ -48,8 +47,9 @@ if (!isset($_SESSION['adminE'])) {
         </ul>
     </nav>
     <!-- Navbar End -->
-    <div class="container-fluid">
 
+    <!-- Container Start-->
+    <div class="container-fluid">
         <div class="row justify-content-center">
             <!-- Hírek Start -->
             <div id="hirek" class="col-10 d-none">
@@ -181,8 +181,10 @@ if (!isset($_SESSION['adminE'])) {
                 </div>
             </div>
             <!-- Jelszó Módósítás End -->
+
         </div>
     </div>
+    <!-- Container End-->
 </body>
 
 

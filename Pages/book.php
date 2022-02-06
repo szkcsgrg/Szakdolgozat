@@ -14,13 +14,11 @@ $_SESSION['message'] = " ";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Könyvtár - Könyvek</title>
 
-
     <!-- Srcipts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <script src="../Scripts/jquery.min.js"></script>
-
 
     <!-- Stylesheets -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -39,7 +37,7 @@ $_SESSION['message'] = " ";
     ?>
     <!-- Navbar End -->
 
-    <!-- Container -->
+    <!-- Container Start -->
     <div class="container">
         <div class="row info-holder row d-flex justify-content-center">
             <?php
@@ -48,11 +46,13 @@ $_SESSION['message'] = " ";
                 $result = $conn->query("SELECT * FROM  konyvek WHERE konyvID=" . $_GET["id"])->fetch_array();
             }
             ?>
-            <!-- Borito Kep -->
+            <!-- Borito Kep Start -->
             <div align="center" class="col-12 col-md-6 margin-bt">
                 <img src="<?php echo $result["borito"] ?>" alt="kep" style="width: 70%;">
             </div>
-            <!-- Konyv Adatok -->
+            <!-- Borito Kep End -->
+
+            <!-- Konyv Adatok Start -->
             <div class="col-12 col-md-6 margin-bt">
                 <h1><?php echo $result["cim"] ?></h1>
                 <p><span class="semantic-color">Szerző: </span><?php echo $result["iro"] ?></p>
@@ -85,11 +85,9 @@ $_SESSION['message'] = " ";
                     </form>
                 </div>
             </div>
+            <!-- Konyv Adatok End -->
 
-
-
-
-            <!-- Megjegyzesek -->
+            <!-- Megjegyzesek Start -->
             <div class="col-12 margin-bt text-center">
                 <div class='text-center'>
                     <h1>Megjegyzések</h1>
@@ -120,14 +118,15 @@ $_SESSION['message'] = " ";
                 </form>
 
 
-                <!-- Message -->
+                <!-- Errors Start -->
                 <div class="response text-center d-flex justify-content-center">
                     <?php
                     echo $_SESSION['message'];
                     ?>
                 </div>
+                <!-- Errors End -->
 
-                <!-- Comments -->
+                <!-- Comments Start-->
                 <div class="comments row justify-content-center">
                     <?php
                     if (isset($_GET["id"])) {
@@ -142,13 +141,13 @@ $_SESSION['message'] = " ";
                     }
                     ?>
                 </div>
+                <!-- Comments End -->
             </div>
+            <!-- Megjegyzesek End -->
         </div>
     </div>
+    <!-- Container End-->
 
-
-    <!-- Footer -->
-    <?php include('../Values/footer.php'); ?>
 </body>
 
 </html>

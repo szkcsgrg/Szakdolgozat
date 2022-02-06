@@ -1,4 +1,3 @@
-<!-- Included PHP -->
 <?php
 include('../Values/constans.php');
 session_start();
@@ -6,7 +5,6 @@ $_SESSION["errordata"] = " ";
 $_SESSION["errorfield"] = " ";
 
 if (isset($_POST['submit'])) {
-    //Values
     $email = $_POST['email'];
     $jelszo = sha1($_POST['jelszo']);
     $_SESSION["emailaddress"] = $email;
@@ -41,12 +39,10 @@ function clean_data($data)
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="hu">
 
 <head>
-    <!-- Basics -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,10 +61,10 @@ function clean_data($data)
 </head>
 
 <body class="bg-image">
-    <!-- Container -->
+    <!-- Container Start -->
     <div class="container-fluid reg-log px-0">
         <div class="row">
-            <!-- Texts - Form -->
+            <!-- Texts - Form Start -->
             <div class="reg-holder col-12 col-lg-6 min-vh-100">
                 <div class="text-holder">
                     <h1>Online Könyvtár</h1>
@@ -92,15 +88,19 @@ function clean_data($data)
                     </div>
                 </div>
             </div>
+            <!-- Texts - Form End -->
 
-            <!-- Map -->
+            <!-- Map Start -->
             <div class="map-holder d-none d-lg-block col-lg-6 w-50">
                 <iframe class="map min-vh-100 w-100"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1135.413609398791!2d16.711084232036345!3d47.402502149287066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476ea5d09c58ec15%3A0xa5d80a76892bc73e!2zTsOhZGFzZHkgVGFtw6FzIEvDtnpnYXpkYXPDoWdpLCBJbmZvcm1hdGlrYWksTcWxc3pha2kgU3pha2vDtnrDqXBpc2tvbGEsU3pha2lza29sYSDDqXMgS29sbMOpZ2l1bQ!5e0!3m2!1shu!2shu!4v1635077447001!5m2!1shu!2shu"
                     frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
+            <!-- Map End -->
+
         </div>
     </div>
+    <!-- Container End -->
 </body>
 
 </html>
