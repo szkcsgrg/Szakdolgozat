@@ -40,7 +40,7 @@ CREATE TABLE `kolcsonzok` (
 
 LOCK TABLES `kolcsonzok` WRITE;
 /*!40000 ALTER TABLE `kolcsonzok` DISABLE KEYS */;
-INSERT INTO `kolcsonzok` VALUES ('Ivettke@gmail.com','Nagy','Ivett','Nagy Ivett','0268f92036d98098002f361d88aadcf4b09fc1a0',NULL,NULL),('konyvtaros@konyvtar.hu','Könyvtáros','Felhasználó','Könyvtáros Felhasználó','f34de2ba4f348a504dadcb62aa50d8915a030d5b','1',NULL),('petrapalnatali@icloud.com','Pál','Petra','Pál Petra','f0f1477661f7c5496d8960169fdf0d7e02d8e53a',NULL,NULL),('szkcsgrg@gmail.com','Szakács','Gergő','Szakács Gergő','0268f92036d98098002f361d88aadcf4b09fc1a0',NULL,NULL),('tesztelek@gmail.com','Teszt','Elek','Teszt Elek','0268f92036d98098002f361d88aadcf4b09fc1a0',NULL,NULL);
+INSERT INTO `kolcsonzok` VALUES ('Ivettke@gmail.com','Nagy','Ivett','Nagy Ivett','0268f92036d98098002f361d88aadcf4b09fc1a0',NULL,NULL),('konyvtaros@konyvtar.hu','Könyvtáros','Marika','Könyvtáros Marika','b08d73b69d550bfa49fb2ebbe0a191c4a4b67c17','1',NULL),('petrapalnatali@icloud.com','Pál','Petra','Pál Petra','f0f1477661f7c5496d8960169fdf0d7e02d8e53a',NULL,NULL),('szkcsgrg@gmail.com','Szakács','Gergő','Anonymus','0268f92036d98098002f361d88aadcf4b09fc1a0',NULL,NULL),('tesztelek@gmail.com','Teszt','Elek','Teszt Elek','0268f92036d98098002f361d88aadcf4b09fc1a0',NULL,NULL);
 /*!40000 ALTER TABLE `kolcsonzok` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-22 10:50:17
+-- Dump completed on 2022-02-06 17:59:53

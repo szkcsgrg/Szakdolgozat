@@ -16,31 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `lefoglalva`
+-- Table structure for table `tickets`
 --
 
-DROP TABLE IF EXISTS `lefoglalva`;
+DROP TABLE IF EXISTS `tickets`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `lefoglalva` (
-  `lefoglalvaID` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tickets` (
+  `idtickets` int NOT NULL AUTO_INCREMENT,
   `emailID` varchar(100) NOT NULL,
-  `konyvID` int NOT NULL,
-  `foglalasKezdete` varchar(45) NOT NULL,
-  `foglalasVege` varchar(45) NOT NULL,
-  `lefoglalva` int NOT NULL,
-  PRIMARY KEY (`lefoglalvaID`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `datum` varchar(50) NOT NULL,
+  PRIMARY KEY (`idtickets`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `lefoglalva`
+-- Dumping data for table `tickets`
 --
 
-LOCK TABLES `lefoglalva` WRITE;
-/*!40000 ALTER TABLE `lefoglalva` DISABLE KEYS */;
-INSERT INTO `lefoglalva` VALUES (15,'szkcsgrg@gmail.com',16,'2022.01.03','2022.01.10',2),(16,'szkcsgrg@gmail.com',11,'2022.01.04','2022.01.11',2),(17,'petrapalnatali@icloud.com',5,'2022.01.07','2022.01.14',2),(18,'petrapalnatali@icloud.com',12,'2022.01.07','2022.01.14',2),(19,'konyvtaros@konyvtar.hu',13,'2022.01.20','2022.01.27',2),(29,'konyvtaros@konyvtar.hu',5,'2022.02.06','2022.02.13',2),(30,'konyvtaros@konyvtar.hu',5,'2022.02.06','2022.02.13',2),(31,'konyvtaros@konyvtar.hu',16,'2022.02.06','2022.02.13',2),(32,'szkcsgrg@gmail.com',5,'2022.02.06','2022.02.13',1);
-/*!40000 ALTER TABLE `lefoglalva` ENABLE KEYS */;
+LOCK TABLES `tickets` WRITE;
+/*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
+INSERT INTO `tickets` VALUES (15,'szkcsgrg@gmail.com','2022.02.01.'),(16,'pistike@gmail.com','2022.02.01.'),(17,'pistike@gmail.com','2022.02.01.'),(18,'konyvtaros@konyvtar.hu','2022.02.06.');
+/*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
