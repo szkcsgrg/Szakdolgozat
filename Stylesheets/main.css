@@ -47,6 +47,7 @@ body {
   -ms-scroll-snap-type: y mandatory;
       scroll-snap-type: y mandatory;
   color: #fff;
+  font-family: "Cabin", sans-serif;
 }
 
 body {
@@ -109,7 +110,6 @@ body {
 
 .reg-holder .form-holder p {
   margin-bottom: 1.2em;
-  font-family: "Kanit", sans-serif;
 }
 
 .reg-holder .form-holder a {
@@ -191,11 +191,10 @@ body {
           box-shadow: 0.3em 0.3em 5px #000;
 }
 
-.search-holder {
+/*.search-holder {
   margin-top: 5em;
   margin-bottom: 5em;
-}
-
+}*/
 table tbody tr td a {
   text-decoration: none;
   color: #fff;
@@ -227,10 +226,10 @@ table tbody tr td a:hover {
   width: 65%;
 }
 
+/*
 .btn-holder {
   margin-top: 6em;
-}
-
+}*/
 .info-holder {
   margin-top: 1.5em;
   margin-bottom: 1.5em;
@@ -273,7 +272,8 @@ table tbody tr td a:hover {
 
 #hirek,
 #hozzaszolasok,
-#foglalasok {
+#foglalasok,
+#jelszo {
   background-color: #ffffff10;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);

@@ -2,10 +2,6 @@
 include('../Values/constans.php');
 session_start();
 ?>
-
-<!DOCTYPE html>
-<html lang="hu">
-
 <!DOCTYPE html>
 <html lang="hu">
 
@@ -31,6 +27,7 @@ session_start();
 </head>
 
 <body class="bg-image">
+    <!-- Navbar Start-->
     <nav class="sticky-top col-12">
         <ul>
             <div class="me-auto d-flex">
@@ -40,19 +37,22 @@ session_start();
                 <li class="p-3"><a href="javascript:showHirek();">Hírek</a></li>
                 <li class="p-3"><a href="javascript:showHozz();">Hozzászólások</a></li>
                 <li class="p-3"><a href="javascript:showFogl();">Foglalások</a></li>
+                <li class="p-3"><a href="javascript:showJelszo();">Jelszó Módósítás</a></li>
             </div>
             <div class="ms-auto">
                 <li class=' p-3'><a href='login.php'><i class="bi bi-box-arrow-right"></i></a></li>
             </div>
         </ul>
     </nav>
-
+    <!-- Navbar End -->
     <div class="container-fluid">
+
         <div class="row justify-content-center">
+            <!-- Hírek Start -->
             <div id="hirek" class="col-10 d-none">
                 <div class="news-holder row d-flex justify-content-center">
                     <div class="text-center" id="hir">
-                        <h1 class="col-12">Hírek</h1>
+                        <h1 class="col-12 p-2">Hírek</h1>
                     </div>
                     <?php
                     $result = $conn->query("SELECT idhirek, tittle, text, date FROM konyvtar.hirek Order By date desc Limit 6;");
@@ -80,10 +80,13 @@ session_start();
                 </div>
 
             </div>
+            <!-- Hírek End -->
+
+            <!-- Hozzászólások Start -->
             <div id="hozzaszolasok" class="col-10 d-none">
                 <div class="news-holder row d-flex justify-content-center">
                     <div class="text-center" id="hir">
-                        <h1 class="col-12">Hozzászólások</h1>
+                        <h1 class="col-12 p-2">Hozzászólások</h1>
                     </div>
                     <?php
                     $result = $conn->query("SELECT * FROM (konyvtar.velemenyek Inner join konyvtar.konyvek on velemenyek.konyvID = konyvek.konyvID) inner join konyvtar.kolcsonzok on velemenyek.emailID = kolcsonzok.email Where allowed is null");
@@ -105,9 +108,76 @@ session_start();
                     ?>
                 </div>
             </div>
+            <!-- Hozzászólások Start -->
+
+            <!-- Foglalások Start -->
             <div id="foglalasok" class="col-10 d-none">
-                <h2>Foglalások</h2>
+                <div class="news-holder row d-flex justify-content-center">
+                    <div class="text-center" id="hir">
+                        <h1 class="col-12 p-2">Foglalások</h1>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Foglaló</th>
+                                <th>Foglalás Kezdete</th>
+                                <th>Foglalás Vége</th>
+                                <th>Könyv ID</th>
+                                <th>Cím</th>
+                                <th>Szerző</th>
+                                <th>Kiadó</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $today = date("Y.m.d");
+                            $result = $conn->query("SELECT lefoglalva.emailID, lefoglalva.foglalasKezdete, lefoglalva.foglalasVege, konyvek.konyvID, konyvek.cim, konyvek.iro, konyvek.kiado FROM konyvtar.lefoglalva inner join konyvtar.konyvek on lefoglalva.konyvID = konyvek.konyvID Where lefoglalva.foglalasVege > '$today' and lefoglalva.lefoglalva = '1';");
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                foreach ($row as $col) {
+                                    echo "<td>" . $col . "</td>";
+                                }
+                                echo "</tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+            <!-- Foglalások End -->
+
+            <!-- Jelszó Módósítás Start -->
+            <div id="jelszo" class="col-10 d-none">
+                <div class="news-holder row d-flex justify-content-center">
+                    <div class="text-center" id="hir">
+                        <h1 class="col-12 p-2">Jelszó Módósítás</h1>
+                    </div>
+                    <form method="POST" class="col-4 text-center">
+                        <input type="text" name="email" class="form-control m-3" placeholder="Email cím">
+                        <input type="password" name="newjelszo" class="form-control m-3" placeholder="Új jelszó"
+                            pattern=".{8,}" title="8 vagy több karakter">
+                        <input type="password" name="newjelszore" class="form-control m-3" placeholder="Új jelszó újra"
+                            pattern=".{8,}" title="8 vagy több karakter">
+                        <input type="submit" value="Mentés" name="submit" class="btn btn-success m-3">
+                    </form>
+                    <?php
+                    if (isset($_POST['submit'])) {
+                        $email = $_POST['email'];
+                        $newjelszo = $_POST['newjelszo'];
+                        $newjelszore = $_POST['newjelszore'];
+                        $jelszo = "NULL";
+                        if ($newjelszo == $newjelszore) {
+                            $jelszo = sha1($newjelszo);
+                            $conn->query("UPDATE `konyvtar`.`kolcsonzok` SET `jelszo` = '$jelszo' WHERE (`email` = '$email');");
+                            echo "<script>alert('Jelszó frissítve.')</script>";
+                        } else {
+                            echo "<script>alert('A két jelszó nem egyezik.')</script>";
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+            <!-- Jelszó Módósítás End -->
         </div>
     </div>
 </body>

@@ -30,14 +30,14 @@ $_SESSION['message'] = " ";
 </head>
 
 <body class="bg-image">
-    <!-- Navbar -->
+    <!-- Navbar Start -->
     <?php
     include('../Values/navbar.php');
     if ($_SESSION['adminE'] == 1) {
         echo "<script src='../Scripts/adminE.js'></script>";
     }
     ?>
-
+    <!-- Navbar End -->
 
     <!-- Container -->
     <div class="container">
@@ -76,6 +76,7 @@ $_SESSION['message'] = " ";
 
                         if ($_lefoglalva == 1) {
                             echo "<script src='../Scripts/btnDisable.js'></script> ";
+                            echo "<div class='alert alert-primary' role='alert'>A könyv lefoglalt állapotban van. Az ön foglalásait <a href='../Pages/profile.php#foglalas'>itt</a> éri el.</div>";
                         }
                         if ($_lefoglalva == 0 || $_lefoglalva == 2) {
                             echo "<script src='../Scripts/btnEnable.js'></script> ";
@@ -90,7 +91,7 @@ $_SESSION['message'] = " ";
 
 
             <!-- Megjegyzesek -->
-            <div class="col-12 margin-bt">
+            <div class="col-12 margin-bt text-center">
                 <div class='text-center'>
                     <h1>Megjegyzések</h1>
                 </div>
@@ -113,7 +114,7 @@ $_SESSION['message'] = " ";
                             $_SESSION['message'] = "Nem töltötte ki a mezőt!";
                         } else {
                             $conn->query("INSERT INTO velemenyek(emailID,konyvID,velemeny, datum) VALUES('$email', '$_id', '$velemeny', '$date')");
-                            $_SESSION['message'] = "Mentettük a megjegyzését. Megjegyzése elbírálás alá kerül.";
+                            $_SESSION['message'] = "<div class='alert alert-primary col-6' role='alert'>Mentettük a megjegyzését. Megjegyzése elbírálás alá kerül.</div>";
                         }
                     }
                     ?>
@@ -121,7 +122,7 @@ $_SESSION['message'] = " ";
 
 
                 <!-- Message -->
-                <div class="response text-center">
+                <div class="response text-center d-flex justify-content-center">
                     <?php
                     echo $_SESSION['message'];
                     ?>

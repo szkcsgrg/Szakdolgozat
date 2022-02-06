@@ -33,28 +33,31 @@
     </nav>
 
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-6">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-5 col-md-8 col-sm-10 col-10">
+                <div class="text-center">
+                    <h1 class="m-5">Hír Szerkesztése</h1>
+                </div>
+
                 <form method="POST">
                     <?php
                     if (isset($_GET["id"])) {
                         include_once '../Values/constans.php';
                         $result = $conn->query("SELECT * FROM  konyvtar.hirek WHERE idhirek=" . $_GET["id"] . "")->fetch_array();
                     } ?>
-                    <br>
-                    <input type='text' name='id' class='form-control' placeholder='ID' value="<?= $result["idhirek"] ?>"
-                        disabled readonly>
-                    <input type='text' name='tittle' class='form-control' placeholder='Cím'
+                    <input type='text' name='id' class='form-control m-2' placeholder='ID'
+                        value="<?= $result["idhirek"] ?>" disabled readonly>
+                    <input type='text' name='tittle' class='form-control m-2' placeholder='Cím'
                         value="<?= $result["tittle"] ?>">
-                    <textarea type='text-area' name='text' class='form-control' rows='3'
+                    <textarea type='text-area' name='text' class='form-control m-2' rows='3'
                         placeholder='Szöveg'><?= $result["text"] ?></textarea>
-
-                    <input type='text' name='date' class='form-control' placeholder='Dátum'
+                    <input type='text' name='date' class='form-control m-2' placeholder='Dátum'
                         value="<?= $result["date"] ?>" disabled readonly>
-                    <input type='text' name='editorID' class='form-control' placeholder='Szerkesztő'
+                    <input type='text' name='editorID' class='form-control m-2' placeholder='Szerkesztő'
                         value="<?= $result["editorID"] ?>" disabled readonly>
-                    <br>
-                    <input type='submit' name='submit' value='Mentés' class='btn btn-success'>
+                    <div class="text-center">
+                        <input type='submit' name='submit' value='Mentés' class='btn btn-success m-3'>
+                    </div>
                 </form>
             </div>
             <?php

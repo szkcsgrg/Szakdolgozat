@@ -18,8 +18,7 @@ if (isset($_POST['submit'])) {
     if ($count == 1) {
         header("Location: home.php");
     } else {
-        //Ellenőrízze, beírt adatait!
-        $_SESSION["errordata"] = "Ellenőrízze, beírt adatait!";
+        $_SESSION["errordata"] = "<div class='alert alert-danger' role='alert'>Az email cím vagy a jelszó nem megfelelő!</div>";
     }
 
 
@@ -28,8 +27,7 @@ if (isset($_POST['submit'])) {
         empty($_POST["jelszo"])
     ) {
         $ableToUpload = false;
-        //Töltsön ki minden mezőt!
-        $_SESSION["errorfield"] = "Töltsön ki minden mezőt!";
+        $_SESSION["errorfield"] = "<div class='alert alert-danger' role='alert'>Töltsön ki minden mezőt!</div>";
         $email = clean_data($_POST["email"]);
         $jelszo = clean_data($_POST["jelszo"]);
     }
@@ -82,7 +80,8 @@ function clean_data($data)
                         <input class="input-text" type="text" name=email placeholder="Email cím">
                         <br>
                         <input class="input-text" type="password" name=jelszo placeholder="Jelszó">
-                        <br>
+                        <br><br>
+                        <p><a href="../Values/ticket.php">Elfelejtettem a jelszavam</a></p>
                         <input class="input-button" type="submit" name="submit" value="Belépés">
                     </form>
                     <div class="error-messages">

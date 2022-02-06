@@ -8,5 +8,5 @@ $(document).ready(function(){
     $('.list-view').addClass("d-block");
     $('.list-view').removeClass("d-none");
 
-    $('.search-holder').addClass("d-block");
+    //$('.search-holder').addClass("d-block");
 });

@@ -34,14 +34,17 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-lg-5 col-md-8 col-sm-10 col-10">
+                <div class="text-center">
+                    <h1 class="m-5">Hír Készítése</h1>
+                </div>
                 <form method="POST">
-
-                    <br>
-                    <input type='text' name='tittle' class='form-control' placeholder='Cím'>
-                    <textarea type='text-area' name='text' class='form-control' rows='3'
+                    <input type='text' name='tittle' class='form-control m-2' placeholder='Cím'>
+                    <textarea type='text-area' name='text' class='form-control m-2' rows='3'
                         placeholder='Szöveg'></textarea>
-                    <input type='submit' name='submit' value='Mentés' class='btn btn-success'>
+                    <div class="text-center m-3">
+                        <input type='submit' name='submit' value='Mentés' class='btn btn-success'>
+                    </div>
                 </form>
             </div>
             <?php
@@ -53,9 +56,8 @@
                 session_start();
                 $_editorID = $_SESSION["emailaddress"];
 
-                //echo "INSERT INTO hirek(tittle,text,date,editorID) VALUES('$_tittle', '$_text', $_date', '$_editorID')";
                 $conn->query("INSERT INTO hirek(tittle,text,date,editorID) VALUES('$_tittle', '$_text', '$_date', '$_editorID')");
-                header("Refresh:0");
+                header("Location: ../Pages/admin.php");
             }
             ?>
         </div>

@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
         $ableToUpload = true;
     } else {
         // A két jelszó nem egyezik!
-        $_SESSION["errorpassword"] = "A két jelszó nem egyezik!";
+        $_SESSION["errorpassword"] = "<div class='alert alert-danger' role='alert'>A két jelszó nem egyezik!</div>";
     }
 
 
@@ -34,8 +34,7 @@ if (isset($_POST['submit'])) {
     ) {
         $ableToUpload = false;
 
-        //Töltsön ki minden mezőt!
-        $_SESSION["errorfield"] = "Töltsön ki minden mezőt!";
+        $_SESSION["errorfield"] = "<div class='alert alert-danger' role='alert'>Töltsön ki minden mezőt!</div>";
 
         $email = clean_data($_POST["email"]);
         $vezeteknev = clean_data($_POST["vezeteknev"]);

@@ -17,6 +17,8 @@ session_start();
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <script src="../Scripts/jquery.min.js"></script>
+    <script src="../Scripts/search.js"></script>
+    <script src="../Scripts/search2.js"></script>
 
 
     <!-- Stylesheets -->
@@ -37,35 +39,39 @@ session_start();
 
     <!-- Container -->
     <div class="container">
-
-        <!-- Searchbar -->
-        <div class="search-holder row d-flex justify-content-center">
-            <div class="col-lg-4 col-md-6 col-sm-8">
-                <input class="form-control" id="filter" name="filter" placeholder="Szerző, cím">
+        <!-- Header Start -->
+        <div class="row m-5">
+            <!-- Searchbar Start-->
+            <div class="search-holder col-6 d-flex justify-content-start">
+                <div class="col-lg-12 col-md-6 col-sm-8">
+                    <input class="form-control" id="filter" name="filter" placeholder="Szerző, cím">
+                </div>
             </div>
-        </div>
-
-        <!-- Switch -->
-        <div class="btn-holder col-12 d-flex p-2">
-            <div class="col-3">
-                <form action="" method="post">
-                    <button name="list" class="btn-list btn btn-primary">
-                        <i class="bi bi-table"></i>
-                    </button>
-                    <button name="images" class="btn-images btn btn-secondary">
-                        <i class="bi bi-grid-3x3-gap-fill"></i>
-                    </button>
-                </form>
-                <?php
-                if (isset($_POST['list'])) {
-                    echo "<script src='../Scripts/switchToList.js'></script>";
-                }
-                if (isset($_POST['images'])) {
-                    echo "<script src='../Scripts/switchToImages.js'></script>";
-                }
-                ?>
+            <!-- Searchbar End-->
+            <!-- Switch Start -->
+            <div class="btn-holder  col-6 d-flex justify-content-end">
+                <div class="col-lg-3">
+                    <form method="post">
+                        <button name="list" class="btn-list btn btn-primary">
+                            <i class="bi bi-table"></i>
+                        </button>
+                        <?php
+                        if (isset($_POST['list'])) {
+                            echo "<script src='../Scripts/switchToList.js'></script>";
+                        } ?>
+                        <button name="images" class="btn-images btn btn-secondary">
+                            <i class="bi bi-grid-3x3-gap-fill"></i>
+                        </button>
+                        <?php
+                        if (isset($_POST['images'])) {
+                            echo "<script src='../Scripts/switchToImages.js'></script>";
+                        } ?>
+                    </form>
+                </div>
             </div>
+            <!-- Switch End-->
         </div>
+        <!-- Header End -->
 
         <!-- Table View -->
         <div class="list-view col-12 books-holder row d-block">

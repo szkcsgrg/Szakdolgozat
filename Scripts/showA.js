@@ -12,3 +12,7 @@ function showFogl() {
     var Foglalasok = document.getElementById("foglalasok");
     Foglalasok.classList.toggle("d-none");
 }
+function showJelszo(){
+    var Jelszo = document.getElementById("jelszo");
+    Jelszo.classList.toggle("d-none");
+}

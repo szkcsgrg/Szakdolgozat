@@ -8,5 +8,5 @@ $(document).ready(function(){
     $('.image-view').addClass("d-flex");
     $('.image-view').removeClass("d-none");
     
-    $('.search-holder').addClass("d-none");
+    //$('.search-holder').addClass("d-none");
 });
