@@ -1,5 +1,6 @@
-<?php include('../Values/constans.php');
-session_start();
+<?php
+include_once('../Values/constans.php');
+include_once('../Values/session.php');
 ?>
 
 <!DOCTYPE html>

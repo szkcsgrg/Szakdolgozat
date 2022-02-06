@@ -66,7 +66,7 @@ function clean_data($data)
 
 <body class="bg-image">
     <!-- Container -->
-    <div class="container-fluid px-0">
+    <div class="container-fluid reg-log px-0">
         <div class="row">
             <!-- Texts - Form -->
             <div class="reg-holder col-12 col-lg-6 min-vh-100">

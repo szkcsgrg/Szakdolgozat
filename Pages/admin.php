@@ -1,6 +1,9 @@
 <?php
-include('../Values/constans.php');
-session_start();
+include_once('../Values/constans.php');
+include_once('../Values/session.php');
+if (!isset($_SESSION['adminE'])) {
+    header("Location: ../Pages/home.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="hu">

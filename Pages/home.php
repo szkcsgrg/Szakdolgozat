@@ -1,6 +1,6 @@
 <?php
-include('../Values/constans.php');
-session_start();
+include_once('../Values/constans.php');
+include_once('../Values/session.php');
 $email =  $_SESSION['emailaddress'];
 $re = $conn->query("SELECT adminE FROM  kolcsonzok WHERE email = '$email'")->fetch_array();
 $_SESSION['adminE'] = $re['adminE'];

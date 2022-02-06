@@ -1,7 +1,7 @@
 <?php
 include_once('../Values/constans.php');
-include('../Values/automatic.php');
-session_start();
+include_once('../Values/automatic.php');
+include_once('../Values/session.php');
 $_SESSION['message'] = " ";
 ?>
 
@@ -46,8 +46,6 @@ $_SESSION['message'] = " ";
             if (isset($_GET["id"])) {
                 $_id = $_GET["id"];
                 $result = $conn->query("SELECT * FROM  konyvek WHERE konyvID=" . $_GET["id"])->fetch_array();
-            } else {
-                //Show a div 100vh. Error Message 
             }
             ?>
             <!-- Borito Kep -->
@@ -63,9 +61,10 @@ $_SESSION['message'] = " ";
                 <p><span class="semantic-color">Kiadás Dátuma: </span><?php echo $result["kiadasDatuma"] ?></p>
                 <p><span class="semantic-color">Leírás: </span><?php echo $result["leiras"] ?></p>
 
-                <!-- Lefoglalas, Kedvencekhez ad , Megjeloles olvasottkent -->
+                <!-- Lefoglalas -->
                 <div class="col-12">
-                    <form action="../Values/lefoglalom.php?id=<?= $_id ?>" method="post">
+                    <form action="../Values/lefoglalom.php?id=<?= $_id ?>" method="post"
+                        onsubmit="return confirm('Biztos le szeretné foglalni ezt a könyvet?');">
                         <?php
                         echo "<script src='../Scripts/jquery.min.js'></script>";
                         $_lefoglalva = "";
