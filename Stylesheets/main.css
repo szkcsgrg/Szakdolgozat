@@ -125,7 +125,7 @@ body {
 .reg-holder .form-holder form .input-text {
   width: 15em;
   margin-bottom: 1em;
-  background-color: #111;
+  background-color: rgba(0, 0, 0, 0);
   border: none;
   border-bottom: 1px solid grey;
 }

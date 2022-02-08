@@ -3,7 +3,7 @@ $(document).ready(function(){
         const value = $(this).val().toLowerCase();
 
         if(value.length > 0) {
-            $("image-view a").each(function() {
+            $(".image-view a").each(function() {
                 const row = $(this);
                 $(this).children().each(function() {
                     if($(this).text().toLowerCase().includes(value)){
@@ -16,7 +16,7 @@ $(document).ready(function(){
                 });
             });
         } else {
-            $("image-view a").each(function() {
+            $(".image-view a").each(function() {
                 $(this).addClass("d-block");
                 $(this).removeClass("d-none");
             });

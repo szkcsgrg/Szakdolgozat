@@ -29,8 +29,24 @@ $_SESSION['message'] = " ";
 
 <body class="bg-image">
     <!-- Navbar Start -->
+    <nav class="sticky-top col-12">
+        <ul>
+            <div class="me-auto">
+                <li class='p-3'><a href='books.php'><i class="bi bi-arrow-left"></i></a></li>
+            </div>
+            <div class="d-flex mx-auto">
+                <li class='p-3'><a href='home.php'>Kezdőlap</a></li>
+                <li class='p-3'><a href='home.php#hir'>Hírek</a></li>
+                <li class='p-3'><a href='books.php'>Könyvek</a></li>
+                <li class='p-3'><a href='profile.php'>Profil</a></li>
+                <li class='adminE d-none p-3'><a href='admin.php'>Kezelő-Felület</a></li>
+            </div>
+            <div class="ms-auto">
+                <li class='p-3'><a href='login.php'><i class="bi bi-box-arrow-right"></i></a></li>
+            </div>
+        </ul>
+    </nav>
     <?php
-    include('../Values/navbar.php');
     if ($_SESSION['adminE'] == 1) {
         echo "<script src='../Scripts/adminE.js'></script>";
     }
@@ -41,6 +57,9 @@ $_SESSION['message'] = " ";
     <div class="container">
         <div class="row info-holder row d-flex justify-content-center">
             <?php
+            if (!isset($_GET["id"])) {
+                header("Location: ../Pages/books.php");
+            }
             if (isset($_GET["id"])) {
                 $_id = $_GET["id"];
                 $result = $conn->query("SELECT * FROM  konyvek WHERE konyvID=" . $_GET["id"])->fetch_array();
