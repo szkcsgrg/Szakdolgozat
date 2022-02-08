@@ -1,3 +1,3 @@
 $(document).ready(function(){
-    $('.lefoglalom').addClass("disabled");
+    $('.lefoglalom').addClass("d-none");
 });
