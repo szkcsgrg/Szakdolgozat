@@ -34,6 +34,8 @@
     <div class="container-fluid text-center">
         <div class="row justify-content-center text-center m-4">
             <h1 class="m-5">Jelszó Módósítás</h1>
+            <p>A jelszó módósítás biztonsági okokból csak a könyvtárban valósítható meg. <br> Adja meg fiókja email
+                címét!</p>
             <form method="POST" class="col-4">
                 <input type='text' name='email' class='form-control m-2' placeholder='Email cím'>
                 <input type='submit' name='submit' value='Küldés' class='btn btn-success m-2'>
@@ -44,7 +46,7 @@
                 $today = date("Y.m.d.");
                 $email = $_POST['email'];
                 $conn->query("INSERT INTO `konyvtar`.`tickets` (`emailID`, `datum`) VALUES ('" . $email . "', '" . $today . "');");
-                echo "Jelszó módósítási kérését mentettük. <br> A következő lépés: fáradjon be a könyvtárunkba!";
+                echo "Jelszó módósítási kérését mentettük. <br> Fáradjon be a könyvtárba a további lépésekért!";
             }
             ?>
         </div>
