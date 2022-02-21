@@ -38,7 +38,7 @@ CREATE TABLE `hirek` (
 
 LOCK TABLES `hirek` WRITE;
 /*!40000 ALTER TABLE `hirek` DISABLE KEYS */;
-INSERT INTO `hirek` VALUES (5,'Felolvasás','Arday Géza legújabb műveit személyesen olvassa fel 2022.02.10-én.\r\n\r\nVárunk mindenkit szeretettel.','2022.01.21','konyvtaros@konyvtar.hu'),(6,'Felolvasás','Leiner Laura legújabb művét személyesen olvassa fel 2022.03.10-én.\r\n\r\nVárunk mindenkit szeretettel.','2022.01.21','konyvtaros@konyvtar.hu'),(8,'Baba-Mama program.','2022.02.01. 17:30-tól \r\n\r\nBaba-Mama program kerül megrendezésre, Tóth Eszter gyermek pedagógus vezénylésével.','2022.01.12','konyvtaros@konyvtar.hu'),(9,'A könyvtár zárva','Szeretett könyvtárunk \r\n2022.02.12-től 2022.02.14-ig \r\nzárva tartja ajtaját.','2022.01.21','konyvtaros@konyvtar.hu'),(10,'Felolvasás','Bikácsy Gergely legújabb műveit személyesen olvassa fel 2022.02.28-án.\r\n\r\nVárunk mindenkit szeretettel.','2021.12.21','konyvtaros@konyvtar.hu'),(12,'A könyvtár zárva','Szeretett könyvtárunk \r\n2022.02.02-től 2022.02.04-ig \r\nzárva tartja ajtaját.','2022.01.21','konyvtaros@konyvtar.hu');
+INSERT INTO `hirek` VALUES (5,'Felolvasás','Arday Géza legújabb műveit személyesen olvassa fel 2022.03.10-én.\r\n\r\nVárunk mindenkit szeretettel.','2022.02.21','konyvtaros@konyvtar.hu'),(6,'Felolvasás','Leiner Laura legújabb művét személyesen olvassa fel 2022.03.10-én.\r\n\r\nVárunk mindenkit szeretettel.','2022.01.21','konyvtaros@konyvtar.hu'),(8,'Baba-Mama program.','2022.02.01. 17:30-tól \r\n\r\nBaba-Mama program kerül megrendezésre, Tóth Eszter gyermek pedagógus vezénylésével.','2022.01.12','konyvtaros@konyvtar.hu'),(9,'A könyvtár zárva','Szeretett könyvtárunk \r\n2022.02.12-től 2022.02.14-ig \r\nzárva tartja ajtaját.','2022.01.21','konyvtaros@konyvtar.hu'),(10,'Felolvasás','Bikácsy Gergely legújabb műveit személyesen olvassa fel 2022.02.28-án.\r\n\r\nVárunk mindenkit szeretettel.','2021.12.21','konyvtaros@konyvtar.hu'),(12,'A könyvtár zárva','Szeretett könyvtárunk \r\n2022.02.02-től 2022.02.04-ig \r\nzárva tartja ajtaját.','2022.01.21','konyvtaros@konyvtar.hu');
 /*!40000 ALTER TABLE `hirek` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-06 17:59:53
+-- Dump completed on 2022-02-21 11:44:45

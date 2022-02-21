@@ -45,8 +45,8 @@
                 include_once "../Values/constans.php";
                 $today = date("Y.m.d.");
                 $email = $_POST['email'];
-                $conn->query("INSERT INTO `konyvtar`.`tickets` (`emailID`, `datum`) VALUES ('" . $email . "', '" . $today . "');");
-                echo "Jelszó módósítási kérését mentettük. <br> Fáradjon be a könyvtárba a további lépésekért!";
+                $conn->query("INSERT INTO `konyvtar`.`tickets` (`emailID`, `datum`, `done`) VALUES ('" . $email . "', '" . $today . "', '1');");
+                echo "<div class='row d-flex justify-content-center'><div class='col-6 alert alert-primary' role='alert'>Jelszó módósítási kérését mentettük. <br> Fáradjon be a könyvtárba a további lépésekért!</div></div>";
             }
             ?>
         </div>

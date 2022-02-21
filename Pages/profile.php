@@ -71,8 +71,8 @@ include_once('../Values/session.php');
                     $vezeteknev = $_POST['vezetek'];
                     $keresztnev = $_POST['kereszt'];
                     $felhasznalonev = $_POST['felhasznalonev'];
-                    $jelszo = $_POST['jelszo'];
-                    if (sha1($jelszo) == $result['jelszo']) {
+                    $jelszo = sha1($_POST['jelszo']) . $salt;
+                    if ($jelszo == $result['jelszo']) {
                         $conn->query("UPDATE konyvtar.kolcsonzok SET vezeteknev = '$vezeteknev', keresztnev = '$keresztnev', felhasznalonev = '$felhasznalonev' WHERE email = '$email'");
                         echo ("<meta http-equiv='refresh' content='1'>");
                     } else {

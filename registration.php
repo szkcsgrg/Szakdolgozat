@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     $felhasznalonev = $vezeteknev . ' ' . $keresztnev;
     $jelszo = "NULL";
     if ($_POST['jelszo'] == $_POST['jelszoujra']) {
-        $jelszo = sha1($_POST['jelszo']);
+        $jelszo = sha1($_POST['jelszo']) . $salt;
         $ableToUpload = true;
     } else {
         $_SESSION["errorpassword"] = "<div class='alert alert-danger' role='alert'>A két jelszó nem egyezik!</div>";

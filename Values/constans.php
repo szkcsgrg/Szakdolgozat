@@ -13,3 +13,4 @@ define('DB_Name', 'konyvtar');
 
 $conn = mysqli_connect(Host, DB_Username, DB_Password);
 $db_select = mysqli_select_db($conn, DB_Name);
+$salt = "2347zhuifh4thiunefkrujfslrfsurf8hgishcds87";

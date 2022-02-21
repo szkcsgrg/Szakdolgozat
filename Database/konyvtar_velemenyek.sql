@@ -30,7 +30,7 @@ CREATE TABLE `velemenyek` (
   `datum` varchar(45) NOT NULL,
   `allowed` int DEFAULT NULL,
   PRIMARY KEY (`velemenyID`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,6 @@ CREATE TABLE `velemenyek` (
 
 LOCK TABLES `velemenyek` WRITE;
 /*!40000 ALTER TABLE `velemenyek` DISABLE KEYS */;
-INSERT INTO `velemenyek` VALUES (17,'tesztelek@gmail.com','11','Jó volt. Ajánlom.','2021.11.30',0),(35,'szkcsgrg@gmail.com','5','Nem szerettem.','2021.12.14',0),(36,'szkcsgrg@gmail.com','5','Hát, olvastam már jobbat is.','2021.12.14',0),(38,'szkcsgrg@gmail.com','16','Az egyik kedvencem','2022.02.01',1),(39,'szkcsgrg@gmail.com','5','Nekem nem lett a kedvencem.','2022.02.06',0),(40,'szkcsgrg@gmail.com','5','Nekem nem lett a kedvencem.','2022.02.06',0),(41,'szkcsgrg@gmail.com','5','Nekem nem lett a kedvencem.','2022.02.06',0),(42,'szkcsgrg@gmail.com','5','Nekem nem lett a kedvencem.','2022.02.06',0),(43,'szkcsgrg@gmail.com','5','Nekem nem lett a kedvencem.','2022.02.06',0),(44,'szkcsgrg@gmail.com','5','Nekem nem lett a kedvencem.','2022.02.06',0),(45,'szkcsgrg@gmail.com','5','Nekem nem lett a kedvencem.','2022.02.06',0),(46,'szkcsgrg@gmail.com','5','Nekem nem lett a kedvencem.','2022.02.06',0),(47,'szkcsgrg@gmail.com','5','Nekem nem lett a kedvencem.','2022.02.06',NULL),(48,'szkcsgrg@gmail.com','11','Elment egynek.','2022.02.06',NULL);
 /*!40000 ALTER TABLE `velemenyek` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-06 17:59:53
+-- Dump completed on 2022-02-21 11:44:45

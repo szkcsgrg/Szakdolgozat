@@ -26,8 +26,9 @@ CREATE TABLE `tickets` (
   `idtickets` int NOT NULL AUTO_INCREMENT,
   `emailID` varchar(100) NOT NULL,
   `datum` varchar(50) NOT NULL,
+  `done` int NOT NULL,
   PRIMARY KEY (`idtickets`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +37,6 @@ CREATE TABLE `tickets` (
 
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
-INSERT INTO `tickets` VALUES (15,'szkcsgrg@gmail.com','2022.02.01.'),(16,'pistike@gmail.com','2022.02.01.'),(17,'pistike@gmail.com','2022.02.01.'),(18,'konyvtaros@konyvtar.hu','2022.02.06.');
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-06 17:59:53
+-- Dump completed on 2022-02-21 11:44:45

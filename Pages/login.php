@@ -6,7 +6,7 @@ $_SESSION["errorfield"] = " ";
 
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
-    $jelszo = sha1($_POST['jelszo']);
+    $jelszo = sha1($_POST['jelszo']) . $salt;
     $_SESSION["emailaddress"] = $email;
 
     $sql = "SELECT  * FROM `kolcsonzok`WHERE  email = '$email' AND jelszo = '$jelszo'";

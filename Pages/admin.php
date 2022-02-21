@@ -156,11 +156,22 @@ if (!isset($_SESSION['adminE'])) {
                         <h1 class="col-12 p-2">Jelszó Módósítás</h1>
                     </div>
                     <form method="POST" class="col-4 text-center">
-                        <input type="text" name="email" class="form-control m-3" placeholder="Email cím">
+                        <!-- <input type="text" name="email" class="form-control m-3" placeholder="Email cím"> -->
+                        <select name="email" class="form-select m-3" placeholder="Email cím">
+                            <?php
+                            $result = $conn->query("SELECT emailID FROM tickets WHERE done like '1'");
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<option value=" . $row['emailID'] . ">" . $row['emailID'] . "</option>";
+                                /*foreach ($row as $col) {
+                                    echo "<option value=" . $row['emailID'] . "></option>";
+                                }*/
+                            }
+                            ?>
+                        </select>
                         <input type="password" name="newjelszo" class="form-control m-3" placeholder="Új jelszó"
-                            pattern=".{8,}" title="8 vagy több karakter">
+                            pattern=".{8,}" title="8 vagy több karakter" required>
                         <input type="password" name="newjelszore" class="form-control m-3" placeholder="Új jelszó újra"
-                            pattern=".{8,}" title="8 vagy több karakter">
+                            pattern=".{8,}" title="8 vagy több karakter" required>
                         <input type="submit" value="Mentés" name="submit" class="btn btn-success m-3">
                     </form>
                     <?php
@@ -170,8 +181,10 @@ if (!isset($_SESSION['adminE'])) {
                         $newjelszore = $_POST['newjelszore'];
                         $jelszo = "NULL";
                         if ($newjelszo == $newjelszore) {
-                            $jelszo = sha1($newjelszo);
+                            $jelszo = sha1($newjelszo) . $salt;
+
                             $conn->query("UPDATE `konyvtar`.`kolcsonzok` SET `jelszo` = '$jelszo' WHERE (`email` = '$email');");
+                            $conn->query("UPDATE `konyvtar`.`tickets` SET `done` = '0' WHERE (`emailID` = '$email')");
                             echo "<script>alert('Jelszó frissítve.')</script>";
                         } else {
                             echo "<script>alert('A két jelszó nem egyezik.')</script>";
