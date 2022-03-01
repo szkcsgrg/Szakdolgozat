@@ -43,10 +43,23 @@
             <?php
             if (isset($_POST['submit']) && isset($_POST['email'])) {
                 include_once "../Values/constans.php";
-                $today = date("Y.m.d.");
-                $email = $_POST['email'];
-                $conn->query("INSERT INTO `konyvtar`.`tickets` (`emailID`, `datum`, `done`) VALUES ('" . $email . "', '" . $today . "', '1');");
-                echo "<div class='row d-flex justify-content-center'><div class='col-6 alert alert-primary' role='alert'>Jelszó módósítási kérését mentettük. <br> Fáradjon be a könyvtárba a további lépésekért!</div></div>";
+                $uploadAble = false;
+                $result = $conn->query("SELECT email FROM kolcsonzok");
+                while ($row = $result->fetch_assoc()) {
+                    if ($_POST['email'] == $row['email']) {
+                        $uploadAble = true;
+                    } else {
+                        break;
+                    }
+                }
+                if ($uploadAble == true) {
+                    $today = date("Y.m.d.");
+                    $email = $_POST['email'];
+                    $conn->query("INSERT INTO `konyvtar`.`tickets` (`emailID`, `datum`, `done`) VALUES ('" . $email . "', '" . $today . "', '1');");
+                    echo "<div class='row d-flex justify-content-center'><div class='col-6 alert alert-primary' role='alert'>Jelszó módósítási kérését mentettük. <br> Fáradjon be a könyvtárba a további lépésekért!</div></div>";
+                } else {
+                    echo "<div class='row d-flex justify-content-center'><div class='col-6 alert alert-danger' role='alert'>Jelszó módósítási kérését nem mentettük. <br> A megadott email cím nem szerepel az adatbázisban!</div></div>";
+                }
             }
             ?>
         </div>
