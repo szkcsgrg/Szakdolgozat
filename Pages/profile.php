@@ -57,7 +57,7 @@ include_once('../Values/session.php');
                     <label for="felhasznalonev" class="m-1">Felhasználónév:</label>
                     <input type="text" name="felhasznalonev" class="form-control" placeholder="Felhasználónév"
                         value="<?= $result['felhasznalonev'] ?>">
-                    <label for="jelszo" class="m-1">Mostani Jelszó:</label>
+                    <label for="jelszo" class="m-1">Jelszó:</label>
                     <input type="password" name="jelszo" class="form-control" placeholder="Jelszó">
                     <div class="text-center d-flex justify-content-center">
                         <div class="d-flex justify-content-center col-3 m-2">
