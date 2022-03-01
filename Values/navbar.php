@@ -8,7 +8,7 @@
             <li class='p-3'><a href='home.php#hir'>Hírek</a></li>
             <li class='p-3'><a href='books.php'>Könyvek</a></li>
             <li class='p-3'><a href='profile.php'>Profil</a></li>
-            <li class='adminE d-none p-3'><a href='admin.php'>Kezelő-Felület</a></li>
+            <li class='adminE d-none p-3'><a href='admin.php'>Kezelőfelület</a></li>
         </div>
         <div class="ms-auto">
             <li class='p-3'><a href='login.php'><i class="bi bi-box-arrow-right"></i></a></li>
