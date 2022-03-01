@@ -39,7 +39,7 @@ if (!isset($_SESSION['adminE'])) {
                 <li class="p-3"><a href="javascript:showHirek();">Hírek</a></li>
                 <li class="p-3"><a href="javascript:showHozz();">Hozzászólások</a></li>
                 <li class="p-3"><a href="javascript:showFogl();">Foglalások</a></li>
-                <li class="p-3"><a href="javascript:showJelszo();">Jelszó Módósítás</a></li>
+                <li class="p-3"><a href="javascript:showJelszo();">Jelszómódósítás</a></li>
             </div>
             <div class="ms-auto">
                 <li class=' p-3'><a href='login.php'><i class="bi bi-box-arrow-right"></i></a></li>
@@ -149,11 +149,11 @@ if (!isset($_SESSION['adminE'])) {
             </div>
             <!-- Foglalások End -->
 
-            <!-- Jelszó Módósítás Start -->
+            <!-- Jelszómódósítás Start -->
             <div id="jelszo" class="col-10 d-none">
                 <div class="news-holder row d-flex justify-content-center">
                     <div class="text-center" id="hir">
-                        <h1 class="col-12 p-2">Jelszó Módósítás</h1>
+                        <h1 class="col-12 p-2">Jelszómódósítás</h1>
                     </div>
                     <form method="POST" class="col-4 text-center">
                         <!-- <input type="text" name="email" class="form-control m-3" placeholder="Email cím"> -->
@@ -193,7 +193,7 @@ if (!isset($_SESSION['adminE'])) {
                     ?>
                 </div>
             </div>
-            <!-- Jelszó Módósítás End -->
+            <!-- Jelszómódósítás End -->
 
         </div>
     </div>
