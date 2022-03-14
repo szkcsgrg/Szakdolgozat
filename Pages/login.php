@@ -71,7 +71,7 @@ function clean_data($data)
                 </div>
                 <div class="form-holder">
                     <h2>Belépés</h2>
-                    <p><a href="../registration.php">Még nincs fiókom</a></p>
+                    <p><a href="../Pages/registration.php">Még nincs fiókom</a></p>
                     <form action="" method="POST">
                         <input class="input-text" type="text" name=email placeholder="Email cím">
                         <br>
