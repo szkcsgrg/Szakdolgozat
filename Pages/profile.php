@@ -10,7 +10,7 @@ include_once('../Values/session.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Könyvtár - Könyvek</title>
+    <title>Könyvtár - Profil</title>
 
     <!-- Srcipts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
