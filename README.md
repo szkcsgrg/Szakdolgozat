@@ -1,5 +1,12 @@
-# Szakács Gergő - Könyvtári Szoftver
+# Könyvtári Szoftver - Szakács Gergő
 
-Kezdés: _2021.11.13._
-<br /><br /><br />
+## Fontos tudnivalók
 
+- A könyvtáros felhasználónak belépéséhez a következő adatokat kell beírni:
+
+```
+Email: konyvtaros@konyvtar.hu
+Jelszó: konyv1234
+```
+
+- A program indításakor a `Pages` mappában található `login.php` vagy a `registration.php` fájlt kell elindítani.
