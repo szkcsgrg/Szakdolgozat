@@ -2,9 +2,9 @@
 
 ## Fontos tudnivalók
 
-- Az adatbázis a `Database` mappában található. A Program indítása elött az adatbázisnak futnia kell.
+- Az adatbázis a `Database` mappában található. A Program indítása elött az adatbázisnak futnia kell!
 
-- Amennyiben a `connection string` módósítására van szükség akkor a `Values/constans.php` fájlban kell átírni.
+- Amennyiben a `connection string` módósítására van szükség akkor a `Values/constans.php` fájlban kell átírni a következőt:
 
 ```
 $conn = new mysqli("127.0.0.1", "root", "titok1234", "konyvtar");
